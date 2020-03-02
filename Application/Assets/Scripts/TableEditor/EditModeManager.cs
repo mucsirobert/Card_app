@@ -93,11 +93,14 @@ public class EditModeManager : MonoBehaviour {
 
     public void SpawnEditorEntity(EditorEntity entity)
     {
+        if (tablesHolder == null) Debug.Log("fhu");
+
         var spawnedEntity = Instantiate(entity, tablesHolder.ActiveTable.transform);
         //spawnedEntity.gameObject.SetActive(true);
+        
         spawnedEntity.transform.position = new Vector3(0, 0, 0f);
     }
-
+    
     public void OnApplyPressed()
     {
         tablesHolder.Apply();
@@ -141,6 +144,7 @@ public class EditModeManager : MonoBehaviour {
 
     public void OnSaveButtonPressed()
     {
+        if (tablesHolder == null) Debug.Log("fux2");
         tablesHolder.SaveToJson(currenteditedFileName);
         
     }

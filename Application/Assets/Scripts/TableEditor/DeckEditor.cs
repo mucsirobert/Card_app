@@ -70,8 +70,26 @@ public class DeckEditor : EditorEntity
 
     }
 
+    public void copyProperties(DeckEditor deck) {
+        deck.OwnerTakeAwayPermissionType = this.OwnerTakeAwayPermissionType;
+        deck.OthersTakeAwayPermissionType = this.OthersTakeAwayPermissionType;
+        deck.FlipCardsWhenDropped = this.FlipCardsWhenDropped;
+        deck.OwnerDropOntoPermissionType = this.OwnerDropOntoPermissionType;
+        deck.OthersDropOntoPermissionType = this.OthersDropOntoPermissionType;
+        deck.OwnerShufflePermissionType = this.OwnerShufflePermissionType;
+        deck.OwnerDealPermissionType = this.OwnerDealPermissionType;
+        deck.OthersShufflePermissionType = this.OthersShufflePermissionType;
+        deck.OthersDealPermissionType = this.OthersDealPermissionType;
+    }
+
     public override void OnMenuItemClicked(ContextMenuItem menuItem)
     {
+        if (menuItem.id == 4) {
+            DeckEditor cloned = Instantiate(this);
+            copyProperties(cloned);
+            
+             cloned.transform.position = new Vector3(0, 0, 0f);
+        }
         if (menuItem.id == 1) {
             //Zone settings
             DeckPermissionSettings.Show(this);

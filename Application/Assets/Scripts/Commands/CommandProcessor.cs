@@ -134,6 +134,7 @@ public class CommandProcessor : NetworkBehaviour {
     [ClientRpc]
     private void RpcSetUndoButtonInteractable(bool interactabe)
     {
+        
         Instance.undoButton.interactable = interactabe;
     }
     [ClientRpc]
