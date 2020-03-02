@@ -15,6 +15,7 @@ public class HorizontalZoneSettings : Dialog<HorizontalZoneSettings>
     public Dropdown othersDropOntoPermissionDropdown;
     public Dropdown othersViewPermissionDropdown;
     public InputField nameInputField;
+    public InputField numberOfCards;
 
     public Toggle flipCardsWhenDroppedToggle;
 

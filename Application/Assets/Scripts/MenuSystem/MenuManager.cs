@@ -10,15 +10,12 @@ public class MenuManager : MonoBehaviour
     public HorizontalZoneSettings horizontalZoneSettingsPrefab;
     public DeckPermissionSettings deckPermissionSettingsPrefab;
 
-    
-
     public LogPanel logPanelPrefab;
     public QuestionPanel questionPanelPrefab;
     public DropdownDialog dropdownDialogPrefab;
     public TextInputDialog textInputDialogPrefab;
     public DealCardsDialog dealCardsDialogPrefab;
     public VotePanel votePanelPrefab;
-
 
     public InfoPanel infoPanelPrefab;
     public GameObject backPanel;

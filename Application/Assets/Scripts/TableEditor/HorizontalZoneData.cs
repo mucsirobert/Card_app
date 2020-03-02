@@ -19,8 +19,8 @@ public class HorizontalZoneData : EntityData {
     }
 
     public HorizontalZoneData(Vector3 position, string name, Color color, Permission.PermissionType ownerTakeAwayPermissionType, Permission.PermissionType ownerDropOntoPermissionType, Permission.PermissionType ownerViewPermissionType,
-        Permission.PermissionType othersTakeAwayPermissionType, Permission.PermissionType othersDropOntoPermissionType, Permission.PermissionType othersViewPermissionType, bool flipCardsWhenDropped)
-        : base(position, name, color, ownerTakeAwayPermissionType, ownerDropOntoPermissionType, othersTakeAwayPermissionType, othersDropOntoPermissionType, flipCardsWhenDropped)
+        Permission.PermissionType othersTakeAwayPermissionType, Permission.PermissionType othersDropOntoPermissionType, Permission.PermissionType othersViewPermissionType, bool flipCardsWhenDropped, int numberOfCards)
+        : base(position, name, color, ownerTakeAwayPermissionType, ownerDropOntoPermissionType, othersTakeAwayPermissionType, othersDropOntoPermissionType, flipCardsWhenDropped, numberOfCards)
     {
         this.ownerViewPermissionType = ownerViewPermissionType;
         this.othersViewPermissionType = othersViewPermissionType;

@@ -80,7 +80,6 @@ public class HorizontalZone : Zone
     {
         base.OnItemAboveDrag(droppable);
 
-
         int newIndex = cardsHolderTransform.childCount;
         for (int i = 0; i < cardsHolderTransform.childCount; i++)
         {

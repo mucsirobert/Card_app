@@ -8,6 +8,7 @@ using UnityEngine.EventSystems;
 public abstract class EditorEntity : MonoBehaviour
 {
     public string Name { get; set; }
+    public int numberOfCards { get; set; }
     public bool FlipCardsWhenDropped { get; set; }
 
     public Permission.PermissionType OwnerTakeAwayPermissionType { get; set; }
@@ -34,9 +35,6 @@ public abstract class EditorEntity : MonoBehaviour
             colorSprite.color = color;
         }
     }
-
-
-    
 
     public abstract void Save(TableData tableData);
 
