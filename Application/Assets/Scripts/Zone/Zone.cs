@@ -22,7 +22,8 @@ public abstract class Zone : Entity {
     [SyncVar]
     public string zoneName;
     [SyncVar]
-    public Color zoneColor = Color.white;
+    // public Color zoneColor = Color.white;
+    public Color zoneColor = new Color (108, 245, 108);
 
     [SyncVar]
     public bool defauldIsFacingUp;

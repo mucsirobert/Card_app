@@ -111,47 +111,60 @@ public class HorizontalZone : Zone
 
     public override void OnItemDropped(CardView card)
     {
-        base.OnItemDropped(card);
-
-        int siblignIndexToDrop = transform.childCount;
-
-        if (placeholderIsActive)
+        if (cardsHolderTransform.childCount < 3)
         {
-            siblignIndexToDrop = placeholderSiblingIndex;
+            base.OnItemDropped(card);
+
+            int siblignIndexToDrop = transform.childCount;
+
+            if (placeholderIsActive)
+            {
+                siblignIndexToDrop = placeholderSiblingIndex;
+            }
+
+            placeholderIsActive = false;
+
+            DropCard(card, siblignIndexToDrop);
+
+            //card.transform.DOKill();
+            /*card.transform.DOLocalMove(GetPositionForChild(card.transform.GetSiblingIndex()), cardDropSpeed).OnKill(() => {
+                scrollableComponent.OnChildAdded(card.SpriteRenderer);
+            });*/
+            card.KillAnimation();
+            card.MoveTo(GetPositionForChild(card.transform.GetSiblingIndex()), cardDropSpeed).OnComplete(() =>
+            {
+                scrollableComponent.OnChildAdded(card.SpriteRenderer);
+            });
         }
-
-        placeholderIsActive = false;
-
-        DropCard(card, siblignIndexToDrop);
-
-        //card.transform.DOKill();
-        /*card.transform.DOLocalMove(GetPositionForChild(card.transform.GetSiblingIndex()), cardDropSpeed).OnKill(() => {
-            scrollableComponent.OnChildAdded(card.SpriteRenderer);
-        });*/
-        card.KillAnimation();
-        card.MoveTo(GetPositionForChild(card.transform.GetSiblingIndex()), cardDropSpeed).OnComplete(() =>
+        else
         {
-            scrollableComponent.OnChildAdded(card.SpriteRenderer);
-        });
+            OnCardDropFailed(card);
+        }
     }
 
     public override void DropCard(CardView card, int siblingIndex)
     {
-        CommandProcessor.Instance.ExecuteClientCommand(new CommandDropCardTo(Player.LocalPlayer, this, card, siblingIndex));
+        if (cardsHolderTransform.childCount < 3)
+        {
+            CommandProcessor.Instance.ExecuteClientCommand(new CommandDropCardTo(Player.LocalPlayer, this, card, siblingIndex));
 
-        base.DropCard(card, siblingIndex);
+            base.DropCard(card, siblingIndex);
+        }
 
     }
 
     protected override void PlaceCard(CardView card, int siblingIndex)
     {
-        base.PlaceCard(card, siblingIndex);
+        if (cardsHolderTransform.childCount < 3)
+        {
+            base.PlaceCard(card, siblingIndex);
 
-        card.SetFacingUp(defauldIsFacingUp);
+            card.SetFacingUp(defauldIsFacingUp);
 
-        UpdateCardPositions(false, cardsInsideMoveSpeed);
+            UpdateCardPositions(false, cardsInsideMoveSpeed);
 
-        UpdateCardSortingLayer(card);
+            UpdateCardSortingLayer(card);
+        }
     }
 
     public override void DropCardOnClients(CardView card, int siblingIndex)

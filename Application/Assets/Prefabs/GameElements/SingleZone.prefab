@@ -248,15 +248,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   parent: {fileID: 0}
   localPosition: {x: 4.663677, y: 1.8725103, z: -0.5}
-  takeAwayPermissionType: 0
-  dropOntoPermissionType: 0
+  ownerTakeAwayPermissionType: 0
+  ownerDropOntoPermissionType: 0
+  othersTakeAwayPermissionType: 0
+  othersDropOntoPermissionType: 0
   zoneName: 
   zoneColor: {r: 1, g: 1, b: 1, a: 1}
   defauldIsFacingUp: 0
   cardsHolderTransform: {fileID: 4551151049241888}
   cardsSortingLayer: Cards
   cornerSprite: {fileID: 212027016902488900}
-  viewPermissionType: 3
+  ownerViewPermissionType: 0
+  othersViewPermissionType: 0
   canOnlyHoldOneCard: 0
 --- !u!114 &114519971057091190
 MonoBehaviour:
@@ -629,7 +632,7 @@ SpriteRenderer:
   m_SortingLayer: 2
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: eca9d606c67d2b1489a1698e5ac8a963, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.36934847, g: 0.6792453, b: 0.29156286, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
