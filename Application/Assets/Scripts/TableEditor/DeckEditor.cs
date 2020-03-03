@@ -8,6 +8,7 @@ public class DeckEditor : EditorEntity
 
     [SerializeField]
     private DecksFile decksFile;
+    public List<DeckEditor> clonedDecks = new List<DeckEditor>();
 
     public Permission.PermissionType OwnerShufflePermissionType { get; set; }
     public Permission.PermissionType OwnerDealPermissionType { get; set; }
@@ -67,7 +68,11 @@ public class DeckEditor : EditorEntity
     public override void Save(TableData tableData)
     {
         tableData.Add(new DeckEntityData(this.transform.position, Name, Color, deckMeta, deckLayout, OwnerTakeAwayPermissionType, OwnerShufflePermissionType, OwnerDealPermissionType, OthersTakeAwayPermissionType, OthersShufflePermissionType, OthersDealPermissionType, false));
+        foreach (DeckEditor item in clonedDecks)
+        {
+            tableData.Add(new DeckEntityData(item.transform.position, Name, Color, deckMeta, deckLayout, OwnerTakeAwayPermissionType, OwnerShufflePermissionType, OwnerDealPermissionType, OthersTakeAwayPermissionType, OthersShufflePermissionType, OthersDealPermissionType, false));
 
+        }
     }
 
     public void copyProperties(DeckEditor deck) {
@@ -87,8 +92,8 @@ public class DeckEditor : EditorEntity
         if (menuItem.id == 4) {
             DeckEditor cloned = Instantiate(this);
             copyProperties(cloned);
-            
-             cloned.transform.position = new Vector3(0, 0, 0f);
+            cloned.transform.position = new Vector3(0, 0, 0f);
+            clonedDecks.Add(cloned);
         }
         if (menuItem.id == 1) {
             //Zone settings
