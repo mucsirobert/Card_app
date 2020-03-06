@@ -22,6 +22,8 @@ public abstract class Zone : Entity {
     [SyncVar]
     public string zoneName;
     [SyncVar]
+    public int numberOfCards;
+    [SyncVar]
     // public Color zoneColor = Color.white;
     public Color zoneColor = new Color (108, 245, 108);
 
@@ -32,7 +34,7 @@ public abstract class Zone : Entity {
 
     public string cardsSortingLayer;
 
-
+    public int NumberOfCards { get; set; }
 
     public Permission TakeAwayPermission { get; set; }
     public Permission DropOntoPermission { get; set; }
@@ -61,7 +63,7 @@ public abstract class Zone : Entity {
     protected override void Start()
     {
         base.Start();
-
+        numberOfCards = 3;
         /*takeAwayPermission = new Permission(Permission.AllowType.WARNING, Permission.AccessType.OWNERONLY);
         dropOntoPermission = new Permission(Permission.AllowType.WARNING, Permission.AccessType.OWNERONLY);*/
         TakeAwayPermission = new Permission(ownerTakeAwayPermissionType, othersTakeAwayPermissionType);

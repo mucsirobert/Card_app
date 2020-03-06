@@ -35,7 +35,7 @@ public class NumberInputField : MonoBehaviour {
 
     public void OnPlusButtonPressed()
     {
-        Number+= steps;
+        Number += steps;
 
         if (Number > maxNumber) Number = maxNumber;
         inputField.text = Number.ToString();

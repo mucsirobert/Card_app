@@ -15,7 +15,7 @@ public class HorizontalZoneSettings : Dialog<HorizontalZoneSettings>
     public Dropdown othersDropOntoPermissionDropdown;
     public Dropdown othersViewPermissionDropdown;
     public InputField nameInputField;
-    public InputField numberOfCards;
+    public NumberInputField numberOfCards;
 
     public Toggle flipCardsWhenDroppedToggle;
 
@@ -31,6 +31,10 @@ public class HorizontalZoneSettings : Dialog<HorizontalZoneSettings>
     {
         var dialog = Create(MenuManager.Instance.horizontalZoneSettingsPrefab);
         dialog.zone = zone;
+        Debug.Log(dialog.numberOfCards.Number);
+        Debug.Log("dialog.numberOfCards.Number = zone.numberOfCards ");
+        Debug.Log(zone.numberOfCards);
+        dialog.numberOfCards.Number = zone.numberOfCards;
         dialog.nameInputField.text = zone.Name;
         dialog.colorButton.GetComponent<Image>().color = zone.Color;
         dialog.colorIdx = Array.FindIndex(Colors, (color) => color.Equals(zone.Color));
@@ -70,6 +74,10 @@ public class HorizontalZoneSettings : Dialog<HorizontalZoneSettings>
         zone.OthersDropOntoPermissionType = (Permission.PermissionType)othersDropOntoPermissionDropdown.value;
         zone.OthersViewPermissionType = (Permission.PermissionType)othersViewPermissionDropdown.value;
         zone.Name = nameInputField.text;
+        Debug.Log(zone.numberOfCards);
+        zone.numberOfCards = numberOfCards.Number;
+        Debug.Log("zone.numberOfCards = numberOfCards.Number");
+        Debug.Log(zone.numberOfCards);
         zone.Color = Colors[colorIdx];
         zone.FlipCardsWhenDropped = flipCardsWhenDroppedToggle.isOn;
 

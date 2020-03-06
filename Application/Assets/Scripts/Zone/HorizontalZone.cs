@@ -79,7 +79,7 @@ public class HorizontalZone : Zone
     public override void OnItemAboveDrag(Droppable droppable)
     {
         base.OnItemAboveDrag(droppable);
-
+        Debug.Log("OnItemAboveDrag: btw wtf is this???");
         int newIndex = cardsHolderTransform.childCount;
         for (int i = 0; i < cardsHolderTransform.childCount; i++)
         {
@@ -104,13 +104,14 @@ public class HorizontalZone : Zone
 
     public override void OnItemAboveEndDrag(Droppable droppable)
     {
+        Debug.Log("DOES IT EVEN EXIST?!");
         base.OnItemAboveEndDrag(droppable);
 
     }
 
     public override void OnItemDropped(CardView card)
     {
-        if (cardsHolderTransform.childCount < 3)
+        if (cardsHolderTransform.childCount < numberOfCards)
         {
             base.OnItemDropped(card);
 
@@ -143,7 +144,7 @@ public class HorizontalZone : Zone
 
     public override void DropCard(CardView card, int siblingIndex)
     {
-        if (cardsHolderTransform.childCount < 3)
+        if (cardsHolderTransform.childCount < numberOfCards)
         {
             CommandProcessor.Instance.ExecuteClientCommand(new CommandDropCardTo(Player.LocalPlayer, this, card, siblingIndex));
 
@@ -154,7 +155,7 @@ public class HorizontalZone : Zone
 
     protected override void PlaceCard(CardView card, int siblingIndex)
     {
-        if (cardsHolderTransform.childCount < 3)
+        if (cardsHolderTransform.childCount < numberOfCards)
         {
             base.PlaceCard(card, siblingIndex);
 

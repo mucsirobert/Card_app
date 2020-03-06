@@ -7,6 +7,7 @@ public class HorizontalZoneEditor : EditorEntity
 
     private static int zoneNumber = 0;
 
+    public int numberOfCards { get; set; }
     public Permission.PermissionType OwnerViewPermissionType { get; set; }
     public Permission.PermissionType OthersViewPermissionType { get; set; }
 

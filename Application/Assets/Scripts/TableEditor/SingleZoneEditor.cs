@@ -7,7 +7,8 @@ public class SingleZoneEditor : EditorEntity
     private static int zoneNumber = 0;
     public bool CanOnlyHoldOneCard { get; set; }
 
-   
+
+    public int numberOfCards { get; set; }
     public Permission.PermissionType OwnerViewPermissionType { get; set; }
     public Permission.PermissionType OthersViewPermissionType { get; set; }
 
