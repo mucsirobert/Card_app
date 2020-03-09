@@ -37,9 +37,15 @@ public class UndoRedoUI : MonoBehaviour
         CommandProcessor.Instance.CmdUndoLastServerCommand();
     }
 
+
     public void OnRedoButtonClicked()
     {
         CommandProcessor.Instance.CmdRedoLastServerCommand();
+    }
+
+    public void OnResetButtonClicked()
+    {
+        CommandProcessor.Instance.CmdResetServerCommand();
     }
 
     private void Awake()

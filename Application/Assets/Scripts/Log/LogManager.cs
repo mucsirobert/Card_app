@@ -64,6 +64,8 @@ public class LogManager : NetworkBehaviour {
         Instance = null;
     }
 
+
+
     [Server]
     public void MakeEntryActive(LogEntry logEntry, bool v)
     {
