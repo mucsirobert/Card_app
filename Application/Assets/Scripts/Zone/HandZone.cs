@@ -50,6 +50,11 @@ public class HandZone : HorizontalZone {
         othersTakeAwayPermissionType = Permission.PermissionType.DENY;
         othersDropOntoPermissionType = Permission.PermissionType.DENY;
         othersViewPermissionType = Permission.PermissionType.DENY;
+
+        numberOfCards = 1000;
+
+        scrollableComponent.scrollableCards = 0;
+
         base.Start();
 
         hideHandComponent.ShownPosition = ShowPosition;
@@ -69,6 +74,13 @@ public class HandZone : HorizontalZone {
         }
 
         defauldIsFacingUp = false;
+    }
+
+    public override void DropCard(CardView card, int siblingIndex)
+    {
+        CommandProcessor.Instance.ExecuteClientCommand(new CommandDropCardTo(Player.LocalPlayer, this, card, siblingIndex));
+
+        base.DropCard(card, siblingIndex);
     }
 
     protected override void PlaceCard(CardView card, int siblingIndex)

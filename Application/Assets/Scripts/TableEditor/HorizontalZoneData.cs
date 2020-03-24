@@ -32,6 +32,7 @@ public class HorizontalZoneData : EntityData {
 
         entity.ownerViewPermissionType = ownerViewPermissionType;
         entity.othersViewPermissionType = othersViewPermissionType;
+        entity.numberOfCards = NumberOfCards;
 
         return entity;
     }
@@ -42,6 +43,7 @@ public class HorizontalZoneData : EntityData {
 
         entityToSpawn.OwnerViewPermissionType = ownerViewPermissionType;
         entityToSpawn.OthersViewPermissionType = othersViewPermissionType;
+        entityToSpawn.numberOfCards = NumberOfCards;
 
         return entityToSpawn;
     }

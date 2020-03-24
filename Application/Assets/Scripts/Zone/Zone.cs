@@ -63,7 +63,6 @@ public abstract class Zone : Entity {
     protected override void Start()
     {
         base.Start();
-        numberOfCards = 3;
         /*takeAwayPermission = new Permission(Permission.AllowType.WARNING, Permission.AccessType.OWNERONLY);
         dropOntoPermission = new Permission(Permission.AllowType.WARNING, Permission.AccessType.OWNERONLY);*/
         TakeAwayPermission = new Permission(ownerTakeAwayPermissionType, othersTakeAwayPermissionType);
@@ -186,9 +185,8 @@ public abstract class Zone : Entity {
     }
 
 
-    public virtual void OnItemAboveBeginDrag(Droppable droppable) {
-    }
-    public virtual void OnItemAboveDrag(Droppable droppable) { }
+    public virtual void OnItemAboveBeginDrag(Droppable droppable) {}
+    public virtual void OnItemAboveDrag(Droppable droppable) {}
     public virtual void OnItemAboveEndDrag(Droppable droppable) {}
 
     void OnOwnerChanged(NetworkInstanceId ownerId)
@@ -234,6 +232,7 @@ public abstract class Zone : Entity {
                 },
                 () => { Debug.Log("Vote Not Passsed"); });
         }
+        
     }
 
     public virtual void OnCardTouched(CardView card)

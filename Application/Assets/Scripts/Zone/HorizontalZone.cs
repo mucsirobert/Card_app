@@ -11,8 +11,8 @@ public class HorizontalZone : Zone
 
     //GameObject placeholder;
 
-    private int placeholderSiblingIndex;
-    private bool placeholderIsActive;
+    protected int placeholderSiblingIndex;
+    protected bool placeholderIsActive;
 
     [SyncVar]
     public Permission.PermissionType ownerViewPermissionType;
@@ -21,13 +21,15 @@ public class HorizontalZone : Zone
 
     public Permission ViewPermission { get; set; }
 
-    private SidewayScrollable scrollableComponent;
+    protected SidewayScrollable scrollableComponent;
 
     private Vector3 spriteSize;
 
     private float cardsInsideMoveSpeed = 0.15f;
 
     public string draggedCardsSortingLayer = "HandCards";
+
+    protected float cardSpace = 1.6f;
 
     protected override void Awake()
     {
@@ -39,10 +41,13 @@ public class HorizontalZone : Zone
     protected override void Start()
     {
         base.Start();
-
         spriteSize = GetComponent<SpriteRenderer>().sprite.bounds.size;
+//        spriteSize.x = 9.0f;
         ViewPermission = new Permission(ownerViewPermissionType, othersViewPermissionType);
 
+        //scrollableComponent.scrollableCards = this.numberOfCards;
+
+        //this.transform.DOScaleX(1.15f, 0.0001f);
 
         //this.transform.localPosition = Vector3.zero
     }
@@ -79,7 +84,7 @@ public class HorizontalZone : Zone
     public override void OnItemAboveDrag(Droppable droppable)
     {
         base.OnItemAboveDrag(droppable);
-        Debug.Log("OnItemAboveDrag: btw wtf is this???");
+        // Debug.Log("OnItemAboveDrag: btw wtf is this???");
         int newIndex = cardsHolderTransform.childCount;
         for (int i = 0; i < cardsHolderTransform.childCount; i++)
         {
@@ -105,6 +110,7 @@ public class HorizontalZone : Zone
     public override void OnItemAboveEndDrag(Droppable droppable)
     {
         Debug.Log("DOES IT EVEN EXIST?!");
+        Debug.Log(spriteSize);
         base.OnItemAboveEndDrag(droppable);
 
     }
@@ -133,7 +139,9 @@ public class HorizontalZone : Zone
             card.KillAnimation();
             card.MoveTo(GetPositionForChild(card.transform.GetSiblingIndex()), cardDropSpeed).OnComplete(() =>
             {
-                scrollableComponent.OnChildAdded(card.SpriteRenderer);
+                Debug.Log(GetPositionForChild(card.transform.GetSiblingIndex()).x);
+               // if (GetPositionForChild(card.transform.GetSiblingIndex()).x > 9.0f)
+                    scrollableComponent.OnChildAdded(card.SpriteRenderer);
             });
         }
         else
@@ -208,11 +216,11 @@ public class HorizontalZone : Zone
         }
     }
 
-    private Vector3 GetPositionForChild(int index)
+    protected Vector3 GetPositionForChild(int index)
     {
         float startingPositionX = spriteSize.x / 2;
 
-        return new Vector3(-startingPositionX + 1f + index * 0.8f, 0, 0);
+        return new Vector3(-startingPositionX + 1f + index * cardSpace /* how much space the card needs in the zone */, 0, 0);
     }
 
     public override void OnCardRemoved(CardView card)
@@ -233,6 +241,24 @@ public class HorizontalZone : Zone
             }, null, warningString, voteString);
 
 
+    }
+
+    public override void OnMenuItemClicked(ContextMenuItem menuItem)
+    {
+        base.OnMenuItemClicked(menuItem);
+        if (menuItem.id == 1)
+        {
+            if (cardSpace == 1.6f)
+            {
+                cardSpace = 0.8f;
+            }
+            else
+            {
+                cardSpace = 1.6f;
+            }
+
+            UpdateCardPositions(false, 1.0f);
+        }
     }
 
 }

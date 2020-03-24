@@ -364,7 +364,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 8.400001, y: 2.7}
+  m_Size: {x: 8.4, y: 2.7}
   m_EdgeRadius: 0
 --- !u!114 &114026749762037396
 MonoBehaviour:
@@ -396,6 +396,7 @@ MonoBehaviour:
   othersTakeAwayPermissionType: 0
   othersDropOntoPermissionType: 0
   zoneName: 
+  numberOfCards: 0
   zoneColor: {r: 0.36436453, g: 0.8679245, b: 0.4121451, a: 1}
   defauldIsFacingUp: 0
   cardsHolderTransform: {fileID: 4020479195956544}
@@ -681,6 +682,9 @@ MonoBehaviour:
   - id: 0
     name: Set owner
     icon: {fileID: 21300000, guid: d6a16b60f41edcb4d97d7826f2f1f460, type: 3}
+  - id: 1
+    name: Set Order
+    icon: {fileID: 21300000, guid: aaf9c73c292a5b445bd79c7e27f08a61, type: 3}
 --- !u!114 &114555686354472294
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -792,6 +796,7 @@ MonoBehaviour:
   objectToMove: {fileID: 4020479195956544}
   rightPoint: {fileID: 4467928585863928}
   holderCollider: {fileID: 61087060000688450}
+  scrollableCards: 5
   horizontalMoveAmount: 2
 --- !u!114 &114790920394972532
 MonoBehaviour:

@@ -14,7 +14,6 @@ public class HorizontalZoneEditor : EditorEntity
     protected override void Awake()
     {
         base.Awake();
-
     }
 
 

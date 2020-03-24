@@ -1052,7 +1052,7 @@ MonoBehaviour:
     type: 2}
   zoneSettingsPrefab: {fileID: 114271304971640786, guid: 58d46afaa855ac74cb1d73f759171e52,
     type: 2}
-  horizontalZoneSettingsPrefab: {fileID: 114427295155858636, guid: 9a8d17a747ba2414792f1e8f01ca13be,
+  horizontalZoneSettingsPrefab: {fileID: 114000597706045972, guid: 15d3209282f63c747bf4945251126380,
     type: 2}
   deckPermissionSettingsPrefab: {fileID: 114686797562988520, guid: e292a539e603e4047a92a7592adf7457,
     type: 2}

@@ -14,6 +14,7 @@ public class SidewayScrollable : MonoBehaviour {
 
     [SerializeField]
     private BoxCollider2D holderCollider;
+    public int scrollableCards = 5;
 
     public float horizontalMoveAmount = 2.0f;
 
@@ -33,9 +34,12 @@ public class SidewayScrollable : MonoBehaviour {
     public void OnChildAdded(SpriteRenderer spriteRenderer)
     {
         spriteRenderer.maskInteraction = SpriteMaskInteraction.VisibleInsideMask;
-        if (objectToMove.childCount > 0 && objectToMove.GetChild(objectToMove.childCount - 1).position.x >= rightPoint.position.x)
+        Debug.Log("nOC: " + scrollableCards);
+        Debug.Log("Child Added" + objectToMove.GetChild(objectToMove.childCount - 1).position.x + " button pos: " + rightPoint.position.x + " ");
+        if (objectToMove.childCount > 0 && objectToMove.GetChild(objectToMove.childCount - 1).position.x >= rightPoint.position.x && objectToMove.childCount > scrollableCards)
         {
             rightButton.SetActive(true);
+            Debug.Log("ACTIVE");
         }
         UpdateBoxColliders();
     }
@@ -135,9 +139,8 @@ public class SidewayScrollable : MonoBehaviour {
             objectToMove.DOLocalMoveX(objectToMove.localPosition.x + horizontalMoveAmount, 0.2f).OnComplete(() => {
                 UpdateBoxColliders();
             });
-            rightButton.SetActive(true);
         }
 
-
+        rightButton.SetActive(true);
     }
 }

@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -26,6 +27,12 @@ public class NumberInputField : MonoBehaviour {
             number = value;
             inputField.text = number.ToString();
         }
+    }
+
+    public void Update()
+    {
+        if(inputField.text != "")
+            Number = Int32.Parse(inputField.text);
     }
 
     public void Start()
