@@ -56,6 +56,9 @@ TagManager:
   - name: Zones
     uniqueID: 3461179749
     locked: 0
+  - name: ZoneIndex
+    uniqueID: 4110854523
+    locked: 0
   - name: HorizontalZoneCards
     uniqueID: 3208497665
     locked: 0

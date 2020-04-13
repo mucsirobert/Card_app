@@ -56,6 +56,7 @@ public class HandZone : HorizontalZone {
         scrollableComponent.scrollableCards = 0;
 
         base.Start();
+        phs.Clear();
 
         hideHandComponent.ShownPosition = ShowPosition;
         hideHandComponent.HiddenPosition = HiddenPosition;
@@ -91,6 +92,7 @@ public class HandZone : HorizontalZone {
             card.SetLocallyFacingUp(true);
 
         card.SetFacingUp(CardsAreVisibleToOthers);
+       
     }
 
     public void FlipCardsInHand()

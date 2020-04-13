@@ -24,11 +24,14 @@ public abstract class Zone : Entity {
     [SyncVar]
     public int numberOfCards;
     [SyncVar]
+    public bool collapse = true;
+    [SyncVar]
     // public Color zoneColor = Color.white;
     public Color zoneColor = new Color (108, 245, 108);
 
     [SyncVar]
     public bool defauldIsFacingUp;
+
 
     public Transform cardsHolderTransform;
 
@@ -71,7 +74,6 @@ public abstract class Zone : Entity {
         mainCamera = Camera.main.gameObject;
 
         cornerSprite.color = zoneColor;
-
         //InitContextMenu();
     }
 

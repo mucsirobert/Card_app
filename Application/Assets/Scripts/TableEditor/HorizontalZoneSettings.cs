@@ -18,6 +18,7 @@ public class HorizontalZoneSettings : Dialog<HorizontalZoneSettings>
     public NumberInputField numberInputField;
 
     public Toggle flipCardsWhenDroppedToggle;
+    public Toggle collapseToggle;
 
     private HorizontalZoneEditor zone;
 
@@ -55,7 +56,9 @@ public class HorizontalZoneSettings : Dialog<HorizontalZoneSettings>
         dialog.othersTakeAwayPermissionDropdown.value = ((byte)zone.OthersTakeAwayPermissionType);
         dialog.othersDropOntoPermissionDropdown.value = ((byte)zone.OthersDropOntoPermissionType);
         dialog.othersViewPermissionDropdown.value = ((byte)zone.OthersViewPermissionType);
+
         dialog.flipCardsWhenDroppedToggle.isOn = zone.FlipCardsWhenDropped;
+        dialog.collapseToggle.isOn = zone.Collapse;
 
     }
 
@@ -79,7 +82,9 @@ public class HorizontalZoneSettings : Dialog<HorizontalZoneSettings>
         Debug.Log("zone.numberOfCards = numberOfCards.Number");
         Debug.Log(zone.numberOfCards);
         zone.Color = Colors[colorIdx];
+
         zone.FlipCardsWhenDropped = flipCardsWhenDroppedToggle.isOn;
+        zone.Collapse = collapseToggle.isOn;
 
         Close();
     }

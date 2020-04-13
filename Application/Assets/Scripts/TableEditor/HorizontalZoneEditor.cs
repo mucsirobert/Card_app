@@ -8,6 +8,7 @@ public class HorizontalZoneEditor : EditorEntity
     private static int zoneNumber = 0;
 
     public int numberOfCards { get; set; }
+    public bool Collapse { get; set; }
     public Permission.PermissionType OwnerViewPermissionType { get; set; }
     public Permission.PermissionType OthersViewPermissionType { get; set; }
 
@@ -31,7 +32,7 @@ public class HorizontalZoneEditor : EditorEntity
 
     public override void Save(TableData tableData)
     {
-        tableData.Add(new HorizontalZoneData(this.transform.position, Name, Color, OwnerTakeAwayPermissionType, OwnerDropOntoPermissionType, OwnerViewPermissionType, OthersTakeAwayPermissionType, OthersDropOntoPermissionType, OthersViewPermissionType, FlipCardsWhenDropped, numberOfCards));
+        tableData.Add(new HorizontalZoneData(this.transform.position, Name, Color, OwnerTakeAwayPermissionType, OwnerDropOntoPermissionType, OwnerViewPermissionType, OthersTakeAwayPermissionType, OthersDropOntoPermissionType, OthersViewPermissionType, FlipCardsWhenDropped, numberOfCards, Collapse));
     }
 
     public override void OnMenuItemClicked(ContextMenuItem menuItem)

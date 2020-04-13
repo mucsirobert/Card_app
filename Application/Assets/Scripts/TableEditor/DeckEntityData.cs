@@ -36,7 +36,7 @@ public class DeckEntityData : EntityData
     }
 
     public DeckEntityData(Vector3 position, string name, Color color, DeckMeta deckInfo, DeckLayout deckData, Permission.PermissionType ownerTakeAwayPermissionType, Permission.PermissionType ownerShufflePermissionType, Permission.PermissionType ownerDealPermissionType,
-         Permission.PermissionType othersTakeAwayPermissionType, Permission.PermissionType othersShufflePermissionType, Permission.PermissionType othersDealPermissionType, bool flipCardsWhenDropped, int numberOfCards) 
+         Permission.PermissionType othersTakeAwayPermissionType, Permission.PermissionType othersShufflePermissionType, Permission.PermissionType othersDealPermissionType, bool flipCardsWhenDropped, int numberOfCards, bool Collapse) 
         : base(position, name, color, ownerTakeAwayPermissionType, Permission.PermissionType.DENY, othersTakeAwayPermissionType, Permission.PermissionType.DENY, flipCardsWhenDropped, numberOfCards)
     {
         this.deckData = deckData;

@@ -11,13 +11,12 @@ public class SidewayScrollable : MonoBehaviour {
 
     public Transform objectToMove;
     public Transform rightPoint;
-
+    
     [SerializeField]
     private BoxCollider2D holderCollider;
     public int scrollableCards = 5;
 
     public float horizontalMoveAmount = 2.0f;
-
 
 
     // Use this for initialization
@@ -34,12 +33,11 @@ public class SidewayScrollable : MonoBehaviour {
     public void OnChildAdded(SpriteRenderer spriteRenderer)
     {
         spriteRenderer.maskInteraction = SpriteMaskInteraction.VisibleInsideMask;
-        Debug.Log("nOC: " + scrollableCards);
+        //Debug.Log("nOC: " + scrollableCards);
         Debug.Log("Child Added" + objectToMove.GetChild(objectToMove.childCount - 1).position.x + " button pos: " + rightPoint.position.x + " ");
         if (objectToMove.childCount > 0 && objectToMove.GetChild(objectToMove.childCount - 1).position.x >= rightPoint.position.x && objectToMove.childCount > scrollableCards)
         {
             rightButton.SetActive(true);
-            Debug.Log("ACTIVE");
         }
         UpdateBoxColliders();
     }
@@ -104,6 +102,35 @@ public class SidewayScrollable : MonoBehaviour {
         
     }
 
+    public void OnButtonNotHovered()
+    {
+        StopAllCoroutines();
+    }
+
+    public void OnRightButtonHovered()
+    {
+        StartCoroutine(RightHover());
+    }
+
+    public void OnLeftButtonHovered()
+    {
+        StartCoroutine(LeftHover());
+    }
+
+
+    IEnumerator LeftHover()
+    {
+        OnLeftButtonClicked();
+        yield return new WaitForSeconds(0.5f);
+        StartCoroutine(LeftHover());
+    }
+
+    IEnumerator RightHover()
+    {
+        OnRightButtonClicked();
+        yield return new WaitForSeconds(0.5f);
+        StartCoroutine(RightHover());
+    }
 
     public void OnRightButtonClicked()
     {
@@ -119,9 +146,9 @@ public class SidewayScrollable : MonoBehaviour {
             if (objectToMove.GetChild(objectToMove.childCount - 1).position.x - horizontalMoveAmount < rightPoint.position.x)
             {
                 rightButton.SetActive(false);
+                StopAllCoroutines();
             }
         }
-
     }
 
     public void OnLeftButtonClicked()
@@ -133,6 +160,7 @@ public class SidewayScrollable : MonoBehaviour {
                 UpdateBoxColliders();
             });
             leftButton.SetActive(false);
+            StopAllCoroutines();
         }
         else
         {
@@ -142,5 +170,11 @@ public class SidewayScrollable : MonoBehaviour {
         }
 
         rightButton.SetActive(true);
+    }
+
+    public void UpdateCardSpace()
+    {
+        objectToMove.DOLocalMoveX(-rightPoint.position.x, 1.0f);
+        leftButton.SetActive(true);
     }
 }

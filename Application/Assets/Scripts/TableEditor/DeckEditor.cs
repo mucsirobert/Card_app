@@ -66,7 +66,7 @@ public class DeckEditor : EditorEntity
 
     public override void Save(TableData tableData)
     {
-        tableData.Add(new DeckEntityData(this.transform.position, Name, Color, deckMeta, deckLayout, OwnerTakeAwayPermissionType, OwnerShufflePermissionType, OwnerDealPermissionType, OthersTakeAwayPermissionType, OthersShufflePermissionType, OthersDealPermissionType, false, 999));
+        tableData.Add(new DeckEntityData(this.transform.position, Name, Color, deckMeta, deckLayout, OwnerTakeAwayPermissionType, OwnerShufflePermissionType, OwnerDealPermissionType, OthersTakeAwayPermissionType, OthersShufflePermissionType, OthersDealPermissionType, false, 999, false));
 
     }
 

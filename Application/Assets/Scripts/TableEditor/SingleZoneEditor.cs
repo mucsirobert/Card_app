@@ -9,6 +9,7 @@ public class SingleZoneEditor : EditorEntity
 
 
     public int numberOfCards { get; set; }
+    public bool Collapse { get; set; }
     public Permission.PermissionType OwnerViewPermissionType { get; set; }
     public Permission.PermissionType OthersViewPermissionType { get; set; }
 
@@ -33,7 +34,7 @@ public class SingleZoneEditor : EditorEntity
 
     public override void Save(TableData tableData)
     {
-        tableData.Add(new SingleZoneData(this.transform.position, Name, Color, OwnerTakeAwayPermissionType, OwnerDropOntoPermissionType, OwnerViewPermissionType, OthersTakeAwayPermissionType, OthersDropOntoPermissionType, OthersViewPermissionType, FlipCardsWhenDropped, CanOnlyHoldOneCard, numberOfCards));
+        tableData.Add(new SingleZoneData(this.transform.position, Name, Color, OwnerTakeAwayPermissionType, OwnerDropOntoPermissionType, OwnerViewPermissionType, OthersTakeAwayPermissionType, OthersDropOntoPermissionType, OthersViewPermissionType, FlipCardsWhenDropped, CanOnlyHoldOneCard, numberOfCards, Collapse));
     }
 
     public override void OnMenuItemClicked(ContextMenuItem menuItem)

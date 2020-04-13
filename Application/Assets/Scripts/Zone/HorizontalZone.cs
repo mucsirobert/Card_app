@@ -14,6 +14,10 @@ public class HorizontalZone : Zone
     protected int placeholderSiblingIndex;
     protected bool placeholderIsActive;
 
+    // i want to make an index as a placeholder in da zone
+    public Transform zoneIndexHolder;
+    /*protected Sprite sprite;
+    */
     [SyncVar]
     public Permission.PermissionType ownerViewPermissionType;
     [SyncVar]
@@ -29,7 +33,11 @@ public class HorizontalZone : Zone
 
     public string draggedCardsSortingLayer = "HandCards";
 
+    public GameObject ph;
+
     protected float cardSpace = 1.6f;
+    public List<GameObject> phs;
+    public GameObject PlaceHoldersTransform;
 
     protected override void Awake()
     {
@@ -41,14 +49,27 @@ public class HorizontalZone : Zone
     protected override void Start()
     {
         base.Start();
+        //sprite = GetComponent<SpriteRenderer>().sprite;
         spriteSize = GetComponent<SpriteRenderer>().sprite.bounds.size;
-//        spriteSize.x = 9.0f;
+        //        spriteSize.x = 9.0f;
+        //DropCard(zoneIndexHolder.GetComponent<CardView>(), 0);
         ViewPermission = new Permission(ownerViewPermissionType, othersViewPermissionType);
 
+        // phs[0].transform.position = new Vector3(1.6f, 0, 0);
+        //phs[0].transform.position = new Vector3(0, 0, 0);
+        //phs[0].transform.position = GetPositionForChild(0);
         //scrollableComponent.scrollableCards = this.numberOfCards;
-
+        
+        var PlaceHolders = Instantiate(PlaceHoldersTransform);
+        PlaceHolders.transform.SetParent(this.transform);
+        for (int i = 0; i < numberOfCards; i++)
+        {
+            phs.Add(Instantiate(ph));
+            phs[i].transform.SetParent(this.transform);
+            phs[i].transform.localPosition = GetPositionForChild(i);
+            phs[i].transform.SetParent(PlaceHolders.transform);
+        }
         //this.transform.DOScaleX(1.15f, 0.0001f);
-
         //this.transform.localPosition = Vector3.zero
     }
 
@@ -67,7 +88,8 @@ public class HorizontalZone : Zone
 
         placeholderIsActive = false;
 
-        UpdateCardPositions(false, cardsInsideMoveSpeed);
+        if(collapse)
+            UpdateCardPositions(false, cardsInsideMoveSpeed);
 
         droppable.GetComponent<SpriteRenderer>().sortingLayerName = draggedCardsSortingLayer;
     }
@@ -101,16 +123,20 @@ public class HorizontalZone : Zone
 
 
         placeholderSiblingIndex = newIndex;
-
-        UpdateCardPositions(false, cardsInsideMoveSpeed);
-
+        if (collapse)
+            UpdateCardPositions(false, cardsInsideMoveSpeed);
         droppable.GetComponent<SpriteRenderer>().sortingOrder = placeholderSiblingIndex;
     }
 
     public override void OnItemAboveEndDrag(Droppable droppable)
     {
         Debug.Log("DOES IT EVEN EXIST?!");
-        Debug.Log(spriteSize);
+        for(int i = 0; i < numberOfCards; i++)
+        {
+            //probably for detecting, that 2 cards in the same slot
+            Debug.Log("i: " + i);
+           Debug.Log(cardsHolderTransform.GetChild(i).transform.position.x);
+        }
         base.OnItemAboveEndDrag(droppable);
 
     }
@@ -137,7 +163,9 @@ public class HorizontalZone : Zone
                 scrollableComponent.OnChildAdded(card.SpriteRenderer);
             });*/
             card.KillAnimation();
-            card.MoveTo(GetPositionForChild(card.transform.GetSiblingIndex()), cardDropSpeed).OnComplete(() =>
+            // this and the placeholders should depend on a variable that could be eliminated by a default true/false in hand zone
+            // furthermore when the cardspace is not 1.6 then this is useless that case would be the same for hand zone 
+            card.MoveTo(GetPositionForChild(GetIndexForChild(card.transform.position.x-(cardSpace/2))/*card.transform.GetSiblingIndex()*/), cardDropSpeed).OnComplete(() =>
             {
                 Debug.Log(GetPositionForChild(card.transform.GetSiblingIndex()).x);
                // if (GetPositionForChild(card.transform.GetSiblingIndex()).x > 9.0f)
@@ -169,7 +197,8 @@ public class HorizontalZone : Zone
 
             card.SetFacingUp(defauldIsFacingUp);
 
-            UpdateCardPositions(false, cardsInsideMoveSpeed);
+            if (collapse)
+                UpdateCardPositions(false, cardsInsideMoveSpeed);
 
             UpdateCardSortingLayer(card);
         }
@@ -196,10 +225,11 @@ public class HorizontalZone : Zone
         base.OnCardDropFailed(card);
 
         placeholderIsActive = false;
-        UpdateCardPositions(false, cardsInsideMoveSpeed);
+        if (collapse)
+            UpdateCardPositions(false, cardsInsideMoveSpeed);
     }
 
-    private void UpdateCardPositions(bool killPreviousAnimations, float duration)
+    protected void UpdateCardPositions(bool killPreviousAnimations, float duration)
     {
         for (int i = 0; i < cardsHolderTransform.childCount; i++)
         {
@@ -220,13 +250,32 @@ public class HorizontalZone : Zone
     {
         float startingPositionX = spriteSize.x / 2;
 
+        /*Debug.Log("index: " + index);
+
+        Debug.Log("fv: " + GetIndexForChild(-startingPositionX + 1f + index * cardSpace));*/
         return new Vector3(-startingPositionX + 1f + index * cardSpace /* how much space the card needs in the zone */, 0, 0);
+    }
+
+
+    protected int GetIndexForChild(float dropX)
+    {
+        float startingPositionX = spriteSize.x / 2;
+
+        for(int i = 0; i < numberOfCards+1; i++)
+        {
+            if (-startingPositionX + 1f + i * cardSpace < dropX && -startingPositionX + 1f + (i+1) * cardSpace >= dropX)
+                return i;
+        }
+
+        return -1;
     }
 
     public override void OnCardRemoved(CardView card)
     {
         base.OnCardRemoved(card);
-        UpdateCardPositions(false, cardsInsideMoveSpeed);
+
+        if (collapse)
+            UpdateCardPositions(false, cardsInsideMoveSpeed);
 
         scrollableComponent.OnChildRemoved(card.SpriteRenderer);
     }
@@ -258,6 +307,7 @@ public class HorizontalZone : Zone
             }
 
             UpdateCardPositions(false, 1.0f);
+            scrollableComponent.UpdateCardSpace();
         }
     }
 

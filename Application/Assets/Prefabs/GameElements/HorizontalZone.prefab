@@ -22,6 +22,7 @@ GameObject:
   - component: {fileID: 222075821757780726}
   - component: {fileID: 114555686354472294}
   - component: {fileID: 114606875187638766}
+  - component: {fileID: 114979696352599998}
   m_Layer: 0
   m_Name: LeftButton
   m_TagString: Untagged
@@ -211,6 +212,7 @@ GameObject:
   - component: {fileID: 222506474809316072}
   - component: {fileID: 114897425575727262}
   - component: {fileID: 114790920394972532}
+  - component: {fileID: 114724747108093652}
   m_Layer: 0
   m_Name: RigthButton
   m_TagString: Untagged
@@ -397,14 +399,20 @@ MonoBehaviour:
   othersDropOntoPermissionType: 0
   zoneName: 
   numberOfCards: 0
+  collapse: 0
   zoneColor: {r: 0.36436453, g: 0.8679245, b: 0.4121451, a: 1}
   defauldIsFacingUp: 0
   cardsHolderTransform: {fileID: 4020479195956544}
   cardsSortingLayer: HorizontalZoneCards
   cornerSprite: {fileID: 212129268375125986}
+  zoneIndexHolder: {fileID: 0}
   ownerViewPermissionType: 0
   othersViewPermissionType: 0
   draggedCardsSortingLayer: DraggedCards
+  ph: {fileID: 1407572819633760, guid: 82438edb6ecab92409e30e4b76d1b6ef, type: 2}
+  phs: []
+  PlaceHoldersTransform: {fileID: 1334517958216348, guid: 007528dc5de0db040b941b46e4d27750,
+    type: 2}
 --- !u!114 &114133413878181284
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -780,6 +788,53 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &114724747108093652
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1948174393528556}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1862395651, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 114760045231291216}
+          m_MethodName: OnRightButtonHovered
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
+        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 114760045231291216}
+          m_MethodName: OnButtonNotHovered
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
+        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  delegates: []
 --- !u!114 &114760045231291216
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -797,7 +852,7 @@ MonoBehaviour:
   rightPoint: {fileID: 4467928585863928}
   holderCollider: {fileID: 61087060000688450}
   scrollableCards: 5
-  horizontalMoveAmount: 2
+  horizontalMoveAmount: 3.2
 --- !u!114 &114790920394972532
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -904,6 +959,53 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114979696352599998
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1062152137249386}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1862395651, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 114760045231291216}
+          m_MethodName: OnLeftButtonHovered
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
+        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 114760045231291216}
+          m_MethodName: OnButtonNotHovered
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
+        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  delegates: []
 --- !u!212 &212129268375125986
 SpriteRenderer:
   m_ObjectHideFlags: 1
