@@ -11,6 +11,7 @@ public class SidewayScrollable : MonoBehaviour {
 
     public Transform objectToMove;
     public Transform rightPoint;
+    public int scrollTimes = 0;
     
     [SerializeField]
     private BoxCollider2D holderCollider;
@@ -134,7 +135,8 @@ public class SidewayScrollable : MonoBehaviour {
 
     public void OnRightButtonClicked()
     {
-
+        scrollTimes++;
+        scrollTimes++;
         objectToMove.DOKill();
         if (objectToMove.childCount > 0 && objectToMove.GetChild(objectToMove.childCount - 1).position.x >= rightPoint.position.x)
         {
@@ -153,6 +155,8 @@ public class SidewayScrollable : MonoBehaviour {
 
     public void OnLeftButtonClicked()
     {
+        scrollTimes--;
+        scrollTimes--;
         objectToMove.DOKill();
         if (objectToMove.localPosition.x + horizontalMoveAmount >= Vector3.zero.x)
         {

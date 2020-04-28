@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using DG.Tweening;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -75,6 +76,43 @@ public class HandZone : HorizontalZone {
         }
 
         defauldIsFacingUp = false;
+    }
+
+    public override void OnItemDropped(CardView card)
+    {
+        if (cardsHolderTransform.childCount < numberOfCards)
+        {
+             int siblignIndexToDrop = transform.childCount;
+
+            if (placeholderIsActive)
+            {
+                siblignIndexToDrop = placeholderSiblingIndex;
+            }
+
+            placeholderIsActive = false;
+
+            DropCard(card, siblignIndexToDrop);
+
+            //card.transform.DOKill();
+            /*card.transform.DOLocalMove(GetPositionForChild(card.transform.GetSiblingIndex()), cardDropSpeed).OnKill(() => {
+                scrollableComponent.OnChildAdded(card.SpriteRenderer);
+            });*/
+            card.KillAnimation();
+            // this and the placeholders should depend on a variable that could be eliminated by a default true/false in hand zone
+            // furthermore when the cardspace is not 1.6 then this is useless that case would be the same for hand zone 
+
+            //card.MoveTo(GetPositionForChild(GetIndexForChild(card.transform.position.x/* comment out for coming from horizontal - (cardSpace / 2) + scrollableComponent.scrollTimes * cardSpace*/)/*card.transform.GetSiblingIndex()*/), cardDropSpeed).OnComplete(() =>
+            card.MoveTo(GetPositionForChild(card.transform.GetSiblingIndex()), cardDropSpeed).OnComplete(() =>
+            {
+                Debug.Log(GetPositionForChild(card.transform.GetSiblingIndex()).x);
+                // if (GetPositionForChild(card.transform.GetSiblingIndex()).x > 9.0f)
+                scrollableComponent.OnChildAdded(card.SpriteRenderer);
+            });
+        }
+        else
+        {
+            OnCardDropFailed(card);
+        }
     }
 
     public override void DropCard(CardView card, int siblingIndex)

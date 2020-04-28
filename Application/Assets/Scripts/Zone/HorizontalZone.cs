@@ -32,6 +32,7 @@ public class HorizontalZone : Zone
     private float cardsInsideMoveSpeed = 0.15f;
 
     public string draggedCardsSortingLayer = "HandCards";
+    private bool expandable = true;
 
     public GameObject ph;
 
@@ -49,6 +50,7 @@ public class HorizontalZone : Zone
     protected override void Start()
     {
         base.Start();
+        
         //sprite = GetComponent<SpriteRenderer>().sprite;
         spriteSize = GetComponent<SpriteRenderer>().sprite.bounds.size;
         //        spriteSize.x = 9.0f;
@@ -162,15 +164,29 @@ public class HorizontalZone : Zone
             /*card.transform.DOLocalMove(GetPositionForChild(card.transform.GetSiblingIndex()), cardDropSpeed).OnKill(() => {
                 scrollableComponent.OnChildAdded(card.SpriteRenderer);
             });*/
+
+            Debug.Log(collapse);
             card.KillAnimation();
-            // this and the placeholders should depend on a variable that could be eliminated by a default true/false in hand zone
-            // furthermore when the cardspace is not 1.6 then this is useless that case would be the same for hand zone 
-            card.MoveTo(GetPositionForChild(GetIndexForChild(card.transform.position.x-(cardSpace/2))/*card.transform.GetSiblingIndex()*/), cardDropSpeed).OnComplete(() =>
+            if (collapse)
             {
-                Debug.Log(GetPositionForChild(card.transform.GetSiblingIndex()).x);
-               // if (GetPositionForChild(card.transform.GetSiblingIndex()).x > 9.0f)
+                card.MoveTo(GetPositionForChild(card.transform.GetSiblingIndex()), cardDropSpeed).OnComplete(() =>
+                {
+                    Debug.Log(GetPositionForChild(card.transform.GetSiblingIndex()).x);
+                    // if (GetPositionForChild(card.transform.GetSiblingIndex()).x > 9.0f)
                     scrollableComponent.OnChildAdded(card.SpriteRenderer);
-            });
+                });
+            }
+            else
+            {
+                // this and the placeholders should depend on a variable that could be eliminated by a default true/false in hand zone
+                // furthermore when the cardspace is not 1.6 then this is useless that case would be the same for hand zone 
+                card.MoveTo(GetPositionForChild(GetIndexForChild(card.transform.position.x - (cardSpace / 2) + scrollableComponent.scrollTimes * cardSpace)/*card.transform.GetSiblingIndex()*/), cardDropSpeed).OnComplete(() =>
+                        {
+                            Debug.Log(GetPositionForChild(card.transform.GetSiblingIndex()).x);
+                // if (GetPositionForChild(card.transform.GetSiblingIndex()).x > 9.0f)
+                scrollableComponent.OnChildAdded(card.SpriteRenderer);
+                        });
+            }
         }
         else
         {
@@ -299,16 +315,72 @@ public class HorizontalZone : Zone
         {
             if (cardSpace == 1.6f)
             {
+                for (int i = 0; i < numberOfCards; i++)
+                {
+                    phs[i].transform.DOLocalMoveZ(-50f, 1);
+                }
                 cardSpace = 0.8f;
             }
             else
             {
+                for (int i = 0; i < numberOfCards; i++)
+                {
+                    phs[i].transform.DOLocalMoveZ(0f, 1);
+                }
                 cardSpace = 1.6f;
             }
-
             UpdateCardPositions(false, 1.0f);
             scrollableComponent.UpdateCardSpace();
         }
+        if(menuItem.id == 2)
+        {
+            Expand();
+        }
+    }
+
+
+    private void Expand()
+    {
+        
+        int cnt, i, j;
+        cnt = i = 0;
+        foreach (Transform fchild in cardsHolderTransform)
+        {
+            j = 0;
+            foreach (Transform schild in cardsHolderTransform)
+            {
+                if (fchild.transform.position.x == schild.transform.position.x)
+                {
+                    if (expandable)
+                    {
+                        schild.DOMoveY(schild.transform.position.y - (0.75f * cnt), 1f);
+                    }
+                    else
+                    {
+                        schild.DOMoveY(schild.transform.position.y + (0.75f * cnt), 1f);
+                    }
+                    cnt++;
+                }
+                /*else
+                {
+                    Debug.Log("cX: " + cX + "GetPositionForChild(it).x: " + GetPositionForChild(it).x);
+                }*/
+                j++;
+            }
+            i++;
+            cnt = 0;
+            if (expandable)
+            {
+                fchild.GetComponent<SpriteRenderer>().maskInteraction = SpriteMaskInteraction.None;
+                fchild.GetComponent<SpriteRenderer>().sortingLayerName = "HandCanvas";
+            }
+            else
+            {
+                fchild.GetComponent<SpriteRenderer>().maskInteraction = SpriteMaskInteraction.VisibleInsideMask;
+                fchild.GetComponent<SpriteRenderer>().sortingLayerName = "HorizontalZoneCards";
+            }
+        }
+        expandable = !expandable;
     }
 
 }
