@@ -16,6 +16,7 @@ public class HandZone : HorizontalZone {
     public Button ownShowHandButton;
     public Button otherShowHandButton;
 
+
     public Vector3 ShowPosition { get; set; }
     public Vector3 HiddenPosition { get; set; }
 

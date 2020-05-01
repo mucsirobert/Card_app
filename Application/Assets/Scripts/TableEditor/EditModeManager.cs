@@ -19,6 +19,8 @@ public class EditModeManager : MonoBehaviour {
     [SerializeField]
     private EditModeStartWindow startWindow;
 
+    //public LoadGameStartWindow loadgameStartWindow;
+
     [SerializeField]
     private Text tableNameText;
 
@@ -26,7 +28,7 @@ public class EditModeManager : MonoBehaviour {
 
     private UnityAction backButtonDelegate;
 
-
+    List<string> layoutFileNames;
 
     void Awake () {
         Instance = this;
@@ -50,13 +52,43 @@ public class EditModeManager : MonoBehaviour {
         if (backButtonDelegate != null)
             backButtonDelegate();
     }
-
+    /*
+    public void ShowLoadGameMode(UnityAction backButtonDelegate) {
+        
+        this.backButtonDelegate = backButtonDelegate;
+        //editModeManagerCanvas.gameObject.SetActive(true);
+        loadgameStartWindow.Show( () =>
+        {
+            TextInputDialog.Show("New layout", (string text) =>
+            {
+                if (!String.IsNullOrEmpty(text))
+                {
+                    string fileName = text + ".json";
+                    currenteditedFileName = fileName;
+                    startWindow.Hide();
+                    tablesHolder.Clear();
+                }
+            });
+        },
+        fileName => {
+            currenteditedFileName = fileName;
+            tablesHolder.LoadFromJson(fileName);
+            startWindow.Hide();
+        },
+        fileName => {
+            tablesHolder.LoadFromJson(fileName);
+            tablesHolder.Apply();
+            OnBackButtonPressed();
+        }
+        );Debug.Log("meg kene jelenni");
+    }
+    */
     public void ShowEditMode(UnityAction backButtonDelegate)
     {
         this.backButtonDelegate = backButtonDelegate;
         editModeManagerCanvas.gameObject.SetActive(true);
         tableNameText.text = tablesHolder.ActiveTable.tableName;
-
+        
 
         startWindow.Show(() =>
         {
@@ -93,7 +125,7 @@ public class EditModeManager : MonoBehaviour {
 
     public void SpawnEditorEntity(EditorEntity entity)
     {
-        if (tablesHolder == null) Debug.Log("fhu");
+       
 
         var spawnedEntity = Instantiate(entity, tablesHolder.ActiveTable.transform);
         //spawnedEntity.gameObject.SetActive(true);

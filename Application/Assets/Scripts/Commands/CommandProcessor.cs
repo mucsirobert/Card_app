@@ -15,6 +15,21 @@ public class CommandProcessor : NetworkBehaviour {
     public Button undoButton;
     public Button redoButton;
 
+    public Stack<CommandStackEntry> getUndoStack() { return undoStack; }
+
+    public Stack<CommandStackEntry> getStackToSave() {
+        while (undoStack.Count != 0)
+        {
+            UndoLastServerCommand();
+        }
+        RpcSetRedoButtonInteractable(true);
+        return redoStack;
+    }
+
+    public void setRedoStack(Stack<CommandStackEntry> redo) {
+        redoStack = redo;
+    }
+
 
     private void Start()
     {

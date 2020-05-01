@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -8,6 +9,7 @@ public class Entity : NetworkBehaviour
 {
 
     [SyncVar]
+    [NonSerialized]
     public GameObject parent;
 
     //TODO use ethis everywhere!!!

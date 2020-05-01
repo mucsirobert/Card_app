@@ -1,7 +1,9 @@
 ﻿using System;
+using System.IO;
 using System.Collections.Generic;
 using System.Reflection;
 using UnityEngine;
+using Newtonsoft.Json;
 
 public class MenuManager : MonoBehaviour
 {
@@ -18,11 +20,14 @@ public class MenuManager : MonoBehaviour
     public TextInputDialog textInputDialogPrefab;
     public DealCardsDialog dealCardsDialogPrefab;
     public VotePanel votePanelPrefab;
+    public QuestionPanel panelForSave;
 
 
     public InfoPanel infoPanelPrefab;
     public GameObject backPanel;
 
+    private FileInfo[] listOfGames;// ezek kellenek 
+    private MainMenuManager.SerializableObjects objectsForLoadGame;// a visszatolteshez
 
     private Stack<Dialog> dialogStack = new Stack<Dialog>();
 
@@ -58,6 +63,43 @@ public class MenuManager : MonoBehaviour
         backPanel.transform.SetSiblingIndex(dialogStack.Count - 1);
     }
 
+    public void loadGame() {
+        DirectoryInfo d = new DirectoryInfo(Path.Combine(Application.dataPath, "Games"));
+        //FileInfo[] Files = d.GetFiles("*.txt"); //Getting Text files
+        listOfGames = d.GetFiles("*.txt");
+        List<string> fileNames = new List<string>();
+        foreach (FileInfo file in listOfGames)
+        {
+            fileNames.Add(file.Name);
+        }
+
+        DropdownDialog.Show(fileNames, "Load game", loadGameFromJson);
+    }
+
+    public void loadGameFromJson(int index) {
+        
+        string dataAsJson = File.ReadAllText(Path.Combine(Application.dataPath, Path.Combine("Games", listOfGames[index].Name)));
+      /*  JsonSerializerSettings settings = new JsonSerializerSettings { TypeNameHandling = TypeNameHandling.All };
+        Stack<CommandStackEntry> stack;
+        stack = JsonConvert.DeserializeObject<Stack<CommandStackEntry>>(dataAsJson, settings);
+
+       // objectsForLoadGame = JsonConvert.DeserializeObject<MainMenuManager.SerializableObjects>(dataAsJson, settings);
+        List<string> templist = new List<string>();
+        Debug.Log(objectsForLoadGame);
+
+        /* foreach (MainMenuPlayer p in objectsForLoadGame.playerList) {
+             templist.Add(p.playerName); 
+         }
+         DropdownDialog.Show(templist, "Players", null);
+
+         
+        CommandProcessor.Instance.setRedoStack(stack);
+        Debug.Log("delegétmukodik");
+        */
+
+        GameSaveDataHolder gsdh = GameObject.FindGameObjectWithTag("GameSaveDataHolder").GetComponent<GameSaveDataHolder>();
+        gsdh.LoadFromJSON(dataAsJson);
+    }
 
     //public void OpenMenu(Dialog instance)
     //{

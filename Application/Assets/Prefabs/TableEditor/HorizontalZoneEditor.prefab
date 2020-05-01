@@ -129,6 +129,7 @@ MonoBehaviour:
   colorSprite: {fileID: 212357775822604126}
   editModeManager: {fileID: 114552016974101502, guid: d9151a8987dd0844aa3960d3a988505b,
     type: 3}
+  clonedZones: []
 --- !u!114 &114015202671204968
 MonoBehaviour:
   m_ObjectHideFlags: 0

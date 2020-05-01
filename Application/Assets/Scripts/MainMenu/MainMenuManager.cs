@@ -1,8 +1,10 @@
 ﻿using System;
+using System.IO;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
+using Newtonsoft.Json;
 
 public class MainMenuManager : MonoBehaviour, INetworkEventReceiver {
     [SerializeField]
@@ -26,7 +28,9 @@ public class MainMenuManager : MonoBehaviour, INetworkEventReceiver {
 
     public void OnPlayAndHostPressed()
     {
+       
         lobbyNetworkManager.StartHost();
+        
     }
 
     public void OnJoinGamePressed()
@@ -116,18 +120,90 @@ public class MainMenuManager : MonoBehaviour, INetworkEventReceiver {
         infoPanel.Display("Cient error : " + (errorCode == 6 ? "timeout" : errorCode.ToString()), "Close", null);
     }
 
+    public class SerializableObjects {
+
+        //public List<MainMenuPlayer> playerList = LobbyPlayerList.Instance.getMainMenuPlayerList();
+
+
+
+        //  public static TableEditorDataHolder tedh ;
+        public Stack<CommandStackEntry> redoStack = CommandProcessor.Instance.getStackToSave();
+       /*
+        public void loadForSave() {
+            foreach (Player p in Player.Players)
+            {
+                Debug.Log(p.playerName);
+                playerList.Add(p);
+            }
+
+          //  tedh = TableEditorDataHolder.Instance;
+         //   undoStack = CommandProcessor.Instance.getUndoStack();
+        }
+
+        public List<Player> getPlayerList() {
+           /* List<Player> getter = new List<Player>();
+            foreach (Player p in playerList)
+            {
+                getter.Add(p);
+            }
+            return playerList;
+        }*/
+    }
+
     public void OnIngameExitPressed()
     {
         if (isHosting)
         {
-            QuestionPanel.Show("Are you sure you want to exit to the lobby?", () => { 
-                lobbyNetworkManager.ChangeToLobbyScene();
-                HideMainMenu();
-                lobbyPanel.Show(() =>
-                {
-                    ShowMainMenu();
-                    lobbyNetworkManager.StopHost();
+            QuestionPanel.Show("Are you sure you want to exit to the lobby?", () => {
+                QuestionPanel.Show("Do you want to save the game?", () => { // ez a QuestionPanel YesAction-je
+                    /*
+                    string fileName = DateTime.Now.ToString("yyyy-MM-dd--HH-mm-ss")+".txt";
+                    string path = Application.dataPath;
+                    
+                    Debug.Log(path);
+
+                    DirectoryInfo di = new DirectoryInfo(Path.Combine(path, "Games"));
+                    if (!di.Exists)
+                        di.Create();
+
+                    
+                    Debug.Log(Path.Combine(di.FullName, fileName));
+                    Debug.Log("Mentve");
+                    var sr = File.CreateText(Path.Combine(di.FullName, fileName));
+                    //sr.WriteLine(JsonUtility.ToJson(tables));
+                    JsonSerializerSettings settings = new JsonSerializerSettings { TypeNameHandling = TypeNameHandling.All };
+                    // SerializableObjects so = new SerializableObjects();
+                    //so.loadForSave();
+                    // sr.WriteLine(JsonConvert.SerializeObject(CommandProcessor.Instance.getStackToSave(), settings));
+                   
+                    sr.WriteLine(JsonConvert.SerializeObject(gsdh, settings));
+                    sr.Close();
+                    */
+
+                    GameSaveDataHolder gsdh = GameObject.FindGameObjectWithTag("GameSaveDataHolder").GetComponent<GameSaveDataHolder>();
+                    gsdh.SaveToJSON();
+
+                    lobbyNetworkManager.ChangeToLobbyScene();
+                    HideMainMenu();
+                    lobbyPanel.Show(() =>
+                    {
+                        ShowMainMenu();
+                        lobbyNetworkManager.StopHost();
+                    });
+                    
+
+                }, () => { // ez a questionPanel NoAction-je
+
+                    lobbyNetworkManager.ChangeToLobbyScene();
+                    HideMainMenu();
+                       lobbyPanel.Show(() =>
+                         {
+                             ShowMainMenu();
+                             lobbyNetworkManager.StopHost();
+                          });
+
                 });
+                
             }, null);
         } else
         {

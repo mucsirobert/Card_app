@@ -1,6 +1,8 @@
 ﻿using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.Security.Permissions;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.Networking;
@@ -31,6 +33,7 @@ public abstract class Zone : Entity {
 
     public string cardsSortingLayer;
 
+    public string zoneID;
 
 
     public Permission TakeAwayPermission { get; set; }
@@ -45,6 +48,7 @@ public abstract class Zone : Entity {
     protected float cardDropSpeed = 0.2f;
 
     private bool canTakeAwayCards;
+    public List<CardView> cardList = new List<CardView>();
 
     [SerializeField]
     private SpriteRenderer cornerSprite;
@@ -60,7 +64,7 @@ public abstract class Zone : Entity {
     protected override void Start()
     {
         base.Start();
-
+        zoneID = transform.position.x.ToString() + transform.position.y.ToString() + transform.position.z.ToString(); 
         /*takeAwayPermission = new Permission(Permission.AllowType.WARNING, Permission.AccessType.OWNERONLY);
         dropOntoPermission = new Permission(Permission.AllowType.WARNING, Permission.AccessType.OWNERONLY);*/
         TakeAwayPermission = new Permission(ownerTakeAwayPermissionType, othersTakeAwayPermissionType);
@@ -118,7 +122,11 @@ public abstract class Zone : Entity {
         UpdateCardsSortingOrder();
         UpdateCardsExSiblingIndex();
 
-
+        if (!cardList.Contains(card))
+        {
+            cardList.Add(card);
+            card.currentZoneObject = gameObject;
+        }
         card.DroppedOnZone(this);
 
         if (prevZone != null && prevZone != (Zone)this)
@@ -126,6 +134,7 @@ public abstract class Zone : Entity {
 
             prevZone.OnCardRemoved(card);
         }
+        UnityEngine.Debug.Log(gameObject.name);
     }
 
     public void DropCardOnClientsOnTop(CardView card)
@@ -162,6 +171,13 @@ public abstract class Zone : Entity {
     {
         canTakeAwayCards = false;
         UpdateCardsExSiblingIndex();
+        cardList.Remove(card);
+        UnityEngine.Debug.Log("elveve");
+    }
+
+    public virtual void tempMethod(CardView card)
+    {
+        PlaceCard(card, card.SiblingIndex);
     }
 
     public virtual void OnItemAboveBeforeDrag(Droppable droppable)
@@ -227,9 +243,9 @@ public abstract class Zone : Entity {
                 {
                     CommandProcessor.Instance.ExecuteClientCommand(new CommandSetZoneOwner(this, Player.LocalPlayer));
                     //MyNetwork.Instance.SetZoneOwner(this.netId, MyNetwork.Instance.Player.netId);
-                    Debug.Log("Owner set");
+                    UnityEngine.Debug.Log("Owner set");
                 },
-                () => { Debug.Log("Vote Not Passsed"); });
+                () => { UnityEngine.Debug.Log("Vote Not Passsed"); });
         }
     }
 
