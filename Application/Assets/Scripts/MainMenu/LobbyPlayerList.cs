@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
+using System.Dynamic;
 
 
 //List of players in the lobby
@@ -51,6 +52,10 @@ public class LobbyPlayerList : MonoBehaviour
     public void RemovePlayer(MainMenuPlayer player)
     {
         players.Remove(player);
+    }
+
+    public List<MainMenuPlayer> getMainMenuPlayerList() {
+        return players;
     }
 }
 

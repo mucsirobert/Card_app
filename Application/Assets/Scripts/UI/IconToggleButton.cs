@@ -26,7 +26,7 @@ public class IconToggleButton : MonoBehaviour {
         offIcon.gameObject.SetActive(!isOn);
         onIcon.gameObject.SetActive(isOn);
 
-
+       
     }
 
 }

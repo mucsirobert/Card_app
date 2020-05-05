@@ -23,6 +23,10 @@ public class TableData {
         entities.Clear();
     }
 
+    public void CloneZone(HorizontalZoneData data) {
+        entities.Add(data);
+    }
+
     public void SpawnEntities(GameObject parent, Player owner)
     {
         foreach (var entity in entities)

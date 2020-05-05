@@ -17,7 +17,7 @@ public class TableEditorDataHolder : MonoBehaviour  {
     public HorizontalZone horizontalZonePrefab;
 
     [Serializable]
-    private class Tables
+    public class Tables
     {
         public TableData centerTable;
         public TableData playerTable;
@@ -36,6 +36,14 @@ public class TableEditorDataHolder : MonoBehaviour  {
     {
         Instance = null;
     }*/
+
+    public Tables getTables() {
+        return tables;
+    }
+
+    public void setTables(Tables tbls) {
+        tables = tbls;
+    }
 
     void Awake()
     {

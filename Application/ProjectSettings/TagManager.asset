@@ -13,6 +13,7 @@ TagManager:
   - OwnButton
   - MainMenuManager
   - UIManager
+  - UndoButton1
   layers:
   - Default
   - TransparentFX

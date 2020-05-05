@@ -13,6 +13,9 @@ public class LobbyPanel : MonoBehaviour {
     [SerializeField]
     private Button editModeButton;
 
+    [SerializeField]
+    private Button loadGameButton;
+
     private EditModeManager editModeManager;
 
 
@@ -21,9 +24,14 @@ public class LobbyPanel : MonoBehaviour {
     public void Show(UnityAction onBackPressed)
     {
         editModeButton.gameObject.SetActive(NetworkServer.active);
+        loadGameButton.gameObject.SetActive(NetworkServer.active);
         editModeManager = EditModeManager.Instance;
         this.onBackPressed = onBackPressed;
         gameObject.SetActive(true);
+    }
+
+    public LobbyPlayerList getPlayerList() {
+        return playerList;
     }
 
     public void OnEditModeButtonPressed()
@@ -33,6 +41,23 @@ public class LobbyPanel : MonoBehaviour {
         {
             Show(onBackPressed);
         });
+    }
+
+  //  private FileInfo[] listOfGames;// ezek kellenek 
+ //   private MainMenuManager.SerializableObjects objectsForLoadGame;// a visszatolteshez
+
+    public void OnLoadGameButtonPressed()
+    {
+      //  Hide();
+      /*  editModeManager.ShowLoadGameMode(() =>
+        {
+            Show(onBackPressed);
+        });*/
+        
+
+
+        MenuManager.Instance.loadGame();
+    
     }
 
     public void OnBackPressed()
