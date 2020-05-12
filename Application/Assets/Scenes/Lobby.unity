@@ -2043,26 +2043,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d0b652f32a2cc243917e4028fa0f046, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  deckSettingsPrefab: {fileID: 114973397899137990, guid: 2c66c5874700f5340adce840f0498911,
-    type: 2}
-  zoneSettingsPrefab: {fileID: 114271304971640786, guid: 58d46afaa855ac74cb1d73f759171e52,
-    type: 2}
-  horizontalZoneSettingsPrefab: {fileID: 114710432974915052, guid: bd06d32c3fd707b48b62f4ec642edaf7,
-    type: 2}
-  deckPermissionSettingsPrefab: {fileID: 114686797562988520, guid: e292a539e603e4047a92a7592adf7457,
-    type: 2}
-  logPanelPrefab: {fileID: 0}
-  questionPanelPrefab: {fileID: 0}
-  dropdownDialogPrefab: {fileID: 114102891791583710, guid: b0eb73c287541e0468aa84e27ab09f1d,
-    type: 2}
-  textInputDialogPrefab: {fileID: 114313622406051622, guid: 674c81d17518b65498e6a2d822bfe4fc,
-    type: 2}
-  dealCardsDialogPrefab: {fileID: 0}
-  votePanelPrefab: {fileID: 0}
-  infoPanelPrefab: {fileID: 0}
-  backPanel: {fileID: 420585700}
---- !u!114 &1248753152
-=======
   m_Navigation:
     m_Mode: 3
     m_SelectOnUp: {fileID: 0}
@@ -2103,7 +2083,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_AlphaFadeSpeed: 0.15
-
+--- !u!114 &1205253655
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

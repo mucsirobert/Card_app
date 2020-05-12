@@ -38,7 +38,7 @@ public class ContextMenuPanel : MonoBehaviour {
         {
             contextMenuTransform.pivot = new Vector2(0, 1);
         }
-        contextMenuTransform.position = positon;
+        contextMenuTransform.position= positon;
 
 
         var menuItems = contextMenu.GetMenuItems();
@@ -52,6 +52,7 @@ public class ContextMenuPanel : MonoBehaviour {
             contextMenuItem.onClick.AddListener(Close);
         }
 
+        
     }
 
     public void Close()

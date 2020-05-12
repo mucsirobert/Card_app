@@ -12,6 +12,8 @@ public class MenuManager : MonoBehaviour
     public HorizontalZoneSettings horizontalZoneSettingsPrefab;
     public DeckPermissionSettings deckPermissionSettingsPrefab;
 
+    
+
     public LogPanel logPanelPrefab;
     public QuestionPanel questionPanelPrefab;
     public DropdownDialog dropdownDialogPrefab;
@@ -19,6 +21,7 @@ public class MenuManager : MonoBehaviour
     public DealCardsDialog dealCardsDialogPrefab;
     public VotePanel votePanelPrefab;
     public QuestionPanel panelForSave;
+
 
     public InfoPanel infoPanelPrefab;
     public GameObject backPanel;

@@ -21,8 +21,8 @@ public class SingleZoneData : EntityData {
     }
 
     public SingleZoneData(Vector3 position, string name, Color color, Permission.PermissionType ownerTakeAwayPermissionType, Permission.PermissionType ownerDropOntoPermissionType, Permission.PermissionType ownerViewPermissionType,
-        Permission.PermissionType othersTakeAwayPermissionType, Permission.PermissionType othersDropOntoPermissionType, Permission.PermissionType othersViewPermissionType, bool flipCardsWhenDropped, bool canOnlyHoldOneCard, int numberOfCards, bool Collapse) 
-        : base(position, name, color, ownerTakeAwayPermissionType, ownerDropOntoPermissionType, othersTakeAwayPermissionType, othersDropOntoPermissionType, flipCardsWhenDropped, numberOfCards)
+        Permission.PermissionType othersTakeAwayPermissionType, Permission.PermissionType othersDropOntoPermissionType, Permission.PermissionType othersViewPermissionType, bool flipCardsWhenDropped, bool canOnlyHoldOneCard) 
+        : base(position, name, color, ownerTakeAwayPermissionType, ownerDropOntoPermissionType, othersTakeAwayPermissionType, othersDropOntoPermissionType, flipCardsWhenDropped)
     {
 
         

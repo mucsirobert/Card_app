@@ -35,6 +35,9 @@ public abstract class EditorEntity : MonoBehaviour
         }
     }
 
+
+    
+
     public abstract void Save(TableData tableData);
 
     protected virtual void Awake()

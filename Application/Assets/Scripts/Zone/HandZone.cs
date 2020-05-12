@@ -1,5 +1,4 @@
-﻿using DG.Tweening;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -52,13 +51,7 @@ public class HandZone : HorizontalZone {
         othersTakeAwayPermissionType = Permission.PermissionType.DENY;
         othersDropOntoPermissionType = Permission.PermissionType.DENY;
         othersViewPermissionType = Permission.PermissionType.DENY;
-
-        numberOfCards = 1000;
-
-        scrollableComponent.scrollableCards = 0;
-
         base.Start();
-        phs.Clear();
 
         hideHandComponent.ShownPosition = ShowPosition;
         hideHandComponent.HiddenPosition = HiddenPosition;
@@ -79,50 +72,6 @@ public class HandZone : HorizontalZone {
         defauldIsFacingUp = false;
     }
 
-    public override void OnItemDropped(CardView card)
-    {
-        if (cardsHolderTransform.childCount < numberOfCards)
-        {
-             int siblignIndexToDrop = transform.childCount;
-
-            if (placeholderIsActive)
-            {
-                siblignIndexToDrop = placeholderSiblingIndex;
-            }
-
-            placeholderIsActive = false;
-
-            DropCard(card, siblignIndexToDrop);
-
-            //card.transform.DOKill();
-            /*card.transform.DOLocalMove(GetPositionForChild(card.transform.GetSiblingIndex()), cardDropSpeed).OnKill(() => {
-                scrollableComponent.OnChildAdded(card.SpriteRenderer);
-            });*/
-            card.KillAnimation();
-            // this and the placeholders should depend on a variable that could be eliminated by a default true/false in hand zone
-            // furthermore when the cardspace is not 1.6 then this is useless that case would be the same for hand zone 
-
-            //card.MoveTo(GetPositionForChild(GetIndexForChild(card.transform.position.x/* comment out for coming from horizontal - (cardSpace / 2) + scrollableComponent.scrollTimes * cardSpace*/)/*card.transform.GetSiblingIndex()*/), cardDropSpeed).OnComplete(() =>
-            card.MoveTo(GetPositionForChild(card.transform.GetSiblingIndex()), cardDropSpeed).OnComplete(() =>
-            {
-                Debug.Log(GetPositionForChild(card.transform.GetSiblingIndex()).x);
-                // if (GetPositionForChild(card.transform.GetSiblingIndex()).x > 9.0f)
-                scrollableComponent.OnChildAdded(card.SpriteRenderer);
-            });
-        }
-        else
-        {
-            OnCardDropFailed(card);
-        }
-    }
-
-    public override void DropCard(CardView card, int siblingIndex)
-    {
-        CommandProcessor.Instance.ExecuteClientCommand(new CommandDropCardTo(Player.LocalPlayer, this, card, siblingIndex));
-
-        base.DropCard(card, siblingIndex);
-    }
-
     protected override void PlaceCard(CardView card, int siblingIndex)
     {
         base.PlaceCard(card, siblingIndex);
@@ -131,7 +80,6 @@ public class HandZone : HorizontalZone {
             card.SetLocallyFacingUp(true);
 
         card.SetFacingUp(CardsAreVisibleToOthers);
-       
     }
 
     public void FlipCardsInHand()

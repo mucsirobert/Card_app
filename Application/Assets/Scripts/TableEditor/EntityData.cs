@@ -13,8 +13,6 @@ public abstract class EntityData {
     [JsonProperty]
     public string Name { get; set; }
     [JsonProperty]
-    public int NumberOfCards { get; set; }
-    [JsonProperty]
     public string Color { get; set; }
 
     [JsonProperty]
@@ -36,14 +34,13 @@ public abstract class EntityData {
     }
 
     public EntityData(Vector3 position, string name, Color color, Permission.PermissionType ownerTakeAwayPermissionType, Permission.PermissionType ownerDropOntoPermissionType,
-        Permission.PermissionType othersTakeAwayPermissionType, Permission.PermissionType othersDropOntoPermissionType, bool flipCardsWhenDropped, int numberOfCards)
+        Permission.PermissionType othersTakeAwayPermissionType, Permission.PermissionType othersDropOntoPermissionType, bool flipCardsWhenDropped)
     {
         this.ownerTakeAwayPermissionType = ownerTakeAwayPermissionType;
         this.ownerDropOntoPermissionType = ownerDropOntoPermissionType;
         this.othersTakeAwayPermissionType = othersTakeAwayPermissionType;
         this.othersDropOntoPermissionType = othersDropOntoPermissionType;
 
-        NumberOfCards = numberOfCards;
         Position = position;
         Name = name;
         FlipCardsWhenDropped = flipCardsWhenDropped;

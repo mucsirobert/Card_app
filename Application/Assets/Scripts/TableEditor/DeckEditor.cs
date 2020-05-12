@@ -67,12 +67,10 @@ public class DeckEditor : EditorEntity
 
     public override void Save(TableData tableData)
     {
-
-        tableData.Add(new DeckEntityData(this.transform.position, Name, Color, deckMeta, deckLayout, OwnerTakeAwayPermissionType, OwnerShufflePermissionType, OwnerDealPermissionType, OthersTakeAwayPermissionType, OthersShufflePermissionType, OthersDealPermissionType, false, 999, false));
+        tableData.Add(new DeckEntityData(this.transform.position, Name, Color, deckMeta, deckLayout, OwnerTakeAwayPermissionType, OwnerShufflePermissionType, OwnerDealPermissionType, OthersTakeAwayPermissionType, OthersShufflePermissionType, OthersDealPermissionType, false));
         foreach (DeckEditor item in clonedDecks)
         {
-            tableData.Add(new DeckEntityData(item.transform.position, Name, Color, deckMeta, deckLayout, OwnerTakeAwayPermissionType, OwnerShufflePermissionType, OwnerDealPermissionType, OthersTakeAwayPermissionType, OthersShufflePermissionType, OthersDealPermissionType, false, 999, false));
-
+            tableData.Add(new DeckEntityData(item.transform.position, Name, Color, deckMeta, deckLayout, OwnerTakeAwayPermissionType, OwnerShufflePermissionType, OwnerDealPermissionType, OthersTakeAwayPermissionType, OthersShufflePermissionType, OthersDealPermissionType, false));
 
         }
     }
