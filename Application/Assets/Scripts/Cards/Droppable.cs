@@ -48,7 +48,6 @@ public class Droppable : Draggable {
     public override void OnBeginDrag(PointerEventData eventData)
     {
         base.OnBeginDrag(eventData);
-
         if (IsDraggable)
         {
             droppedOnZone = false;

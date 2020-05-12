@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -28,6 +29,12 @@ public class NumberInputField : MonoBehaviour {
         }
     }
 
+    public void Update()
+    {
+        if(inputField.text != "")
+            Number = Int32.Parse(inputField.text);
+    }
+
     public void Start()
     {
         inputField.text = Number.ToString();
@@ -35,7 +42,7 @@ public class NumberInputField : MonoBehaviour {
 
     public void OnPlusButtonPressed()
     {
-        Number+= steps;
+        Number += steps;
 
         if (Number > maxNumber) Number = maxNumber;
         inputField.text = Number.ToString();

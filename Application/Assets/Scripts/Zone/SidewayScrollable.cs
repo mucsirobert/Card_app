@@ -11,12 +11,13 @@ public class SidewayScrollable : MonoBehaviour {
 
     public Transform objectToMove;
     public Transform rightPoint;
-
+    public int scrollTimes = 0;
+    
     [SerializeField]
     private BoxCollider2D holderCollider;
+    public int scrollableCards = 5;
 
     public float horizontalMoveAmount = 2.0f;
-
 
 
     // Use this for initialization
@@ -33,7 +34,9 @@ public class SidewayScrollable : MonoBehaviour {
     public void OnChildAdded(SpriteRenderer spriteRenderer)
     {
         spriteRenderer.maskInteraction = SpriteMaskInteraction.VisibleInsideMask;
-        if (objectToMove.childCount > 0 && objectToMove.GetChild(objectToMove.childCount - 1).position.x >= rightPoint.position.x)
+        //Debug.Log("nOC: " + scrollableCards);
+        Debug.Log("Child Added" + objectToMove.GetChild(objectToMove.childCount - 1).position.x + " button pos: " + rightPoint.position.x + " ");
+        if (objectToMove.childCount > 0 && objectToMove.GetChild(objectToMove.childCount - 1).position.x >= rightPoint.position.x && objectToMove.childCount > scrollableCards)
         {
             rightButton.SetActive(true);
         }
@@ -100,10 +103,40 @@ public class SidewayScrollable : MonoBehaviour {
         
     }
 
+    public void OnButtonNotHovered()
+    {
+        StopAllCoroutines();
+    }
+
+    public void OnRightButtonHovered()
+    {
+        StartCoroutine(RightHover());
+    }
+
+    public void OnLeftButtonHovered()
+    {
+        StartCoroutine(LeftHover());
+    }
+
+
+    IEnumerator LeftHover()
+    {
+        OnLeftButtonClicked();
+        yield return new WaitForSeconds(0.5f);
+        StartCoroutine(LeftHover());
+    }
+
+    IEnumerator RightHover()
+    {
+        OnRightButtonClicked();
+        yield return new WaitForSeconds(0.5f);
+        StartCoroutine(RightHover());
+    }
 
     public void OnRightButtonClicked()
     {
-
+        scrollTimes++;
+        scrollTimes++;
         objectToMove.DOKill();
         if (objectToMove.childCount > 0 && objectToMove.GetChild(objectToMove.childCount - 1).position.x >= rightPoint.position.x)
         {
@@ -115,13 +148,15 @@ public class SidewayScrollable : MonoBehaviour {
             if (objectToMove.GetChild(objectToMove.childCount - 1).position.x - horizontalMoveAmount < rightPoint.position.x)
             {
                 rightButton.SetActive(false);
+                StopAllCoroutines();
             }
         }
-
     }
 
     public void OnLeftButtonClicked()
     {
+        scrollTimes--;
+        scrollTimes--;
         objectToMove.DOKill();
         if (objectToMove.localPosition.x + horizontalMoveAmount >= Vector3.zero.x)
         {
@@ -129,15 +164,21 @@ public class SidewayScrollable : MonoBehaviour {
                 UpdateBoxColliders();
             });
             leftButton.SetActive(false);
+            StopAllCoroutines();
         }
         else
         {
             objectToMove.DOLocalMoveX(objectToMove.localPosition.x + horizontalMoveAmount, 0.2f).OnComplete(() => {
                 UpdateBoxColliders();
             });
-            rightButton.SetActive(true);
         }
 
+        rightButton.SetActive(true);
+    }
 
+    public void UpdateCardSpace()
+    {
+        objectToMove.DOLocalMoveX(-rightPoint.position.x, 1.0f);
+        leftButton.SetActive(true);
     }
 }

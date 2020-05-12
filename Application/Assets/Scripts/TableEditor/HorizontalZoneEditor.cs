@@ -9,9 +9,14 @@ public class HorizontalZoneEditor : EditorEntity
 
     private static int zoneNumber = 0;
 
+
+    public int numberOfCards { get; set; }
+    public bool Collapse { get; set; }
+
     public EditModeManager editModeManager;
     public List<HorizontalZoneEditor> clonedZones = new List<HorizontalZoneEditor>();
     
+
     public Permission.PermissionType OwnerViewPermissionType { get; set; }
     public Permission.PermissionType OthersViewPermissionType { get; set; }
 
@@ -19,7 +24,6 @@ public class HorizontalZoneEditor : EditorEntity
     protected override void Awake()
     {
         base.Awake();
-
     }
 
 
@@ -37,11 +41,12 @@ public class HorizontalZoneEditor : EditorEntity
 
     public override void Save(TableData tableData)
     {
-        tableData.Add(new HorizontalZoneData(this.transform.position, Name, Color, OwnerTakeAwayPermissionType, OwnerDropOntoPermissionType, OwnerViewPermissionType, OthersTakeAwayPermissionType, OthersDropOntoPermissionType, OthersViewPermissionType, FlipCardsWhenDropped));
+
+        tableData.Add(new HorizontalZoneData(this.transform.position, Name, Color, OwnerTakeAwayPermissionType, OwnerDropOntoPermissionType, OwnerViewPermissionType, OthersTakeAwayPermissionType, OthersDropOntoPermissionType, OthersViewPermissionType, FlipCardsWhenDropped, numberOfCards, Collapse));
         
         foreach (HorizontalZoneEditor item in clonedZones)
             {
-                tableData.Add(new HorizontalZoneData(item.transform.position, Name, Color, OwnerTakeAwayPermissionType, OwnerDropOntoPermissionType, OwnerViewPermissionType, OthersTakeAwayPermissionType, OthersDropOntoPermissionType, OthersViewPermissionType, FlipCardsWhenDropped));
+                tableData.Add(new HorizontalZoneData(item.transform.position, Name, Color, OwnerTakeAwayPermissionType, OwnerDropOntoPermissionType, OwnerViewPermissionType, OthersTakeAwayPermissionType, OthersDropOntoPermissionType, OthersViewPermissionType, FlipCardsWhenDropped, numberOfCards, Collapse));
              
             }
      
@@ -56,6 +61,9 @@ public class HorizontalZoneEditor : EditorEntity
         zone.FlipCardsWhenDropped = this.FlipCardsWhenDropped;
         zone.OwnerDropOntoPermissionType = this.OwnerDropOntoPermissionType;
         zone.OthersDropOntoPermissionType = this.OthersDropOntoPermissionType;
+        zone.numberOfCards = this.numberOfCards;
+        zone.Collapse = this.Collapse;
+
     }
 
     public override void OnMenuItemClicked(ContextMenuItem menuItem)

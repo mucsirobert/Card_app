@@ -24,14 +24,23 @@ public abstract class Zone : Entity {
     [SyncVar]
     public string zoneName;
     [SyncVar]
-    public Color zoneColor = Color.white;
+    public int numberOfCards;
+    [SyncVar]
+    public bool collapse = true;
+    [SyncVar]
+    // public Color zoneColor = Color.white;
+    public Color zoneColor = new Color (108, 245, 108);
 
     [SyncVar]
     public bool defauldIsFacingUp;
 
+
     public Transform cardsHolderTransform;
 
     public string cardsSortingLayer;
+
+
+    public int NumberOfCards { get; set; }
 
     public string zoneID;
 
@@ -64,7 +73,9 @@ public abstract class Zone : Entity {
     protected override void Start()
     {
         base.Start();
+
         zoneID = transform.position.x.ToString() + transform.position.y.ToString() + transform.position.z.ToString(); 
+
         /*takeAwayPermission = new Permission(Permission.AllowType.WARNING, Permission.AccessType.OWNERONLY);
         dropOntoPermission = new Permission(Permission.AllowType.WARNING, Permission.AccessType.OWNERONLY);*/
         TakeAwayPermission = new Permission(ownerTakeAwayPermissionType, othersTakeAwayPermissionType);
@@ -73,7 +84,6 @@ public abstract class Zone : Entity {
         mainCamera = Camera.main.gameObject;
 
         cornerSprite.color = zoneColor;
-
         //InitContextMenu();
     }
 
@@ -199,9 +209,8 @@ public abstract class Zone : Entity {
     }
 
 
-    public virtual void OnItemAboveBeginDrag(Droppable droppable) {
-    }
-    public virtual void OnItemAboveDrag(Droppable droppable) { }
+    public virtual void OnItemAboveBeginDrag(Droppable droppable) {}
+    public virtual void OnItemAboveDrag(Droppable droppable) {}
     public virtual void OnItemAboveEndDrag(Droppable droppable) {}
 
     void OnOwnerChanged(NetworkInstanceId ownerId)
@@ -247,6 +256,7 @@ public abstract class Zone : Entity {
                 },
                 () => { UnityEngine.Debug.Log("Vote Not Passsed"); });
         }
+        
     }
 
     public virtual void OnCardTouched(CardView card)
