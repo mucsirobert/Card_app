@@ -13,19 +13,15 @@ public class HorizontalZoneData : EntityData {
     [JsonProperty]
     private Permission.PermissionType othersViewPermissionType;
 
-    [JsonProperty]
-    public bool collapse { get; set; }
-
     public HorizontalZoneData()
     {
          
     }
 
     public HorizontalZoneData(Vector3 position, string name, Color color, Permission.PermissionType ownerTakeAwayPermissionType, Permission.PermissionType ownerDropOntoPermissionType, Permission.PermissionType ownerViewPermissionType,
-        Permission.PermissionType othersTakeAwayPermissionType, Permission.PermissionType othersDropOntoPermissionType, Permission.PermissionType othersViewPermissionType, bool flipCardsWhenDropped, int numberOfCards, bool Collapse)
-        : base(position, name, color, ownerTakeAwayPermissionType, ownerDropOntoPermissionType, othersTakeAwayPermissionType, othersDropOntoPermissionType, flipCardsWhenDropped, numberOfCards)
+        Permission.PermissionType othersTakeAwayPermissionType, Permission.PermissionType othersDropOntoPermissionType, Permission.PermissionType othersViewPermissionType, bool flipCardsWhenDropped)
+        : base(position, name, color, ownerTakeAwayPermissionType, ownerDropOntoPermissionType, othersTakeAwayPermissionType, othersDropOntoPermissionType, flipCardsWhenDropped)
     {
-        collapse = Collapse;
         this.ownerViewPermissionType = ownerViewPermissionType;
         this.othersViewPermissionType = othersViewPermissionType;
     }
@@ -36,8 +32,6 @@ public class HorizontalZoneData : EntityData {
 
         entity.ownerViewPermissionType = ownerViewPermissionType;
         entity.othersViewPermissionType = othersViewPermissionType;
-        entity.collapse = this.collapse;
-        entity.numberOfCards = NumberOfCards;
 
         return entity;
     }
@@ -48,8 +42,6 @@ public class HorizontalZoneData : EntityData {
 
         entityToSpawn.OwnerViewPermissionType = ownerViewPermissionType;
         entityToSpawn.OthersViewPermissionType = othersViewPermissionType;
-        entityToSpawn.numberOfCards = NumberOfCards;
-        entityToSpawn.Collapse = this.collapse;
 
         return entityToSpawn;
     }

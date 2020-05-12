@@ -6,14 +6,8 @@ public class SingleZoneEditor : EditorEntity
 {
     private static int zoneNumber = 0;
     public bool CanOnlyHoldOneCard { get; set; }
-
-
-
-    public int numberOfCards { get; set; }
-    public bool Collapse { get; set; }
-
     public List<SingleZoneEditor> clonedZones = new List<SingleZoneEditor>();
-
+   
     public Permission.PermissionType OwnerViewPermissionType { get; set; }
     public Permission.PermissionType OthersViewPermissionType { get; set; }
 
@@ -38,11 +32,10 @@ public class SingleZoneEditor : EditorEntity
 
     public override void Save(TableData tableData)
     {
-
-        tableData.Add(new SingleZoneData(this.transform.position, Name, Color, OwnerTakeAwayPermissionType, OwnerDropOntoPermissionType, OwnerViewPermissionType, OthersTakeAwayPermissionType, OthersDropOntoPermissionType, OthersViewPermissionType, FlipCardsWhenDropped, CanOnlyHoldOneCard, numberOfCards, Collapse));
+        tableData.Add(new SingleZoneData(this.transform.position, Name, Color, OwnerTakeAwayPermissionType, OwnerDropOntoPermissionType, OwnerViewPermissionType, OthersTakeAwayPermissionType, OthersDropOntoPermissionType, OthersViewPermissionType, FlipCardsWhenDropped, CanOnlyHoldOneCard));
         foreach (SingleZoneEditor item in clonedZones)
         {
-            tableData.Add(new SingleZoneData(item.transform.position, Name, Color, OwnerTakeAwayPermissionType, OwnerDropOntoPermissionType, OwnerViewPermissionType, OthersTakeAwayPermissionType, OthersDropOntoPermissionType, OthersViewPermissionType, FlipCardsWhenDropped, CanOnlyHoldOneCard, numberOfCards, Collapse));
+            tableData.Add(new SingleZoneData(item.transform.position, Name, Color, OwnerTakeAwayPermissionType, OwnerDropOntoPermissionType, OwnerViewPermissionType, OthersTakeAwayPermissionType, OthersDropOntoPermissionType, OthersViewPermissionType, FlipCardsWhenDropped, CanOnlyHoldOneCard));
 
         }
     }
@@ -57,9 +50,6 @@ public class SingleZoneEditor : EditorEntity
         singlezone.OwnerDropOntoPermissionType = this.OwnerDropOntoPermissionType;
         singlezone.OthersDropOntoPermissionType = this.OthersDropOntoPermissionType;
         singlezone.CanOnlyHoldOneCard = this.CanOnlyHoldOneCard;
-        singlezone.numberOfCards = this.numberOfCards;
-        singlezone.Collapse = this.Collapse;
-
     }
 
     public override void OnMenuItemClicked(ContextMenuItem menuItem)

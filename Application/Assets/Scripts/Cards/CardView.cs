@@ -157,7 +157,6 @@ public class CardView : Entity
     public void OnBeginDrag()
     {
         SpriteRenderer.sortingLayerName = dragSortingLayer;
-        
         SpriteRenderer.maskInteraction = SpriteMaskInteraction.None;
 
         //This is needet because of the sprite mask on horizontal zones
