@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.Networking;
 using UnityEngine.UI;
+//using UnityEngine.SceneManagement;
 
 public class HorizontalZone : Zone
 {

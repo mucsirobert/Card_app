@@ -14,7 +14,6 @@ public class DeckView : Zone
     private Vector3 pointerOffset;
     public CardView cardPrefab;
     //public List<Sprite> cardList;
-    //public List<Sprite> cardList;
     private List<GameObject> cards;
     private List<int> cardNums = new List<int>();
 
@@ -59,6 +58,8 @@ public class DeckView : Zone
             InitDeck();
         }
 
+       
+
     }
 
 
@@ -80,6 +81,7 @@ public class DeckView : Zone
         ShufflePermission = new Permission(ownerShufflePermissionType, othersShufflePermissionType);
         DealPermission = new Permission(ownerDealPermissionType, othersDealPermissionType);
 
+        StartCoroutine(initGameWithDelay());
     }
 
     protected override bool CanTakeAwayCards()
@@ -103,15 +105,43 @@ public class DeckView : Zone
                 cardToSpawn.currentZoneObject = gameObject;
                 cardToSpawn.sortingOrder = sortingOrder;
                 NetworkServer.Spawn(cardToSpawn.gameObject);
+
                 cardNums.Add(sortingOrder);
+                cardList.Add(cardToSpawn);
 
                 sortingOrder++;
             }
 
         }
-
+        
     }
 
+    public void loadGame() {
+        GameObject[] zones = GameObject.FindGameObjectsWithTag("Zone");
+        List<GameSaveDataHolder.CardSaveData> tempList = GameSaveDataHolder.Instance.data.cardDataList;
+        if (tempList == null) UnityEngine.Debug.Log("templist ures");
+        if (GameSaveDataHolder.Instance == null) UnityEngine.Debug.Log("instance ures");
+        int ij = 0;
+        foreach (GameObject item in zones)
+        {
+            foreach (GameSaveDataHolder.CardSaveData carddata in tempList)
+            {
+                ij++;
+                UnityEngine.Debug.Log(ij);
+                UnityEngine.Debug.Log("jéj");
+                UnityEngine.Debug.Log(carddata.cardName);
+                CardView card = GameObject.Find(carddata.cardName).GetComponent<CardView>();
+                UnityEngine.Debug.Log("jéjután");
+                if (item.transform.position == carddata.zonePosition)
+                {
+                    item.GetComponent<Zone>().tempMethod(card);
+                    /* if (item.name == "SingleZone(Clone)") {
+                         GameObject.Find(carddata.cardName).transform.position = new Vector3(0, 0, 0);
+                     }*/
+                }
+            }
+        }
+    }
 
 
     [Server]
@@ -354,7 +384,61 @@ public class DeckView : Zone
         });
     }
 
+    public List<CardView> getCardList() {
+        return cardList;
+    }
 
+    public IEnumerator initGameWithDelay() {
+
+        yield return new WaitForSeconds(0.2f);
+        GameObject[] zones = GameObject.FindGameObjectsWithTag("Zone");
+        List<GameSaveDataHolder.CardSaveData> tempList = GameSaveDataHolder.Instance.data.cardDataList;
+        if (tempList == null) UnityEngine.Debug.Log("templist ures");
+        if (GameSaveDataHolder.Instance == null) UnityEngine.Debug.Log("instance ures");
+        //  int ij = 0;
+
+        if (tempList.Count != 0)
+
+            foreach (GameSaveDataHolder.CardSaveData carddata in tempList)
+            {
+                if (!carddata.isHandZoneCard)
+                {
+                    foreach (GameObject item in zones)
+                    {
+
+                        // ij++;
+                        // UnityEngine.Debug.Log(ij);
+
+                        UnityEngine.Debug.Log(carddata.cardName);
+                        CardView card = GameObject.Find(carddata.cardName).GetComponent<CardView>();
+
+
+                        if (item.GetComponent<Zone>().zoneID == carddata.zoneID)
+                        {
+                            //  item.GetComponent<Zone>().tempMethod(card);
+                            item.GetComponent<Zone>().DropCardOnClientsOnTop(card);
+                            CommandProcessor.Instance.ExecuteClientCommand(new CommandDropCardTo(Player.LocalPlayer, item.GetComponent<Zone>(), card, card.SiblingIndex));
+
+                        }
+                    }
+                }
+                else
+                {
+
+                    CardView card = GameObject.Find(carddata.cardName).GetComponent<CardView>();
+
+                    foreach (Player player in Player.Players)
+                    {
+                        if (player.playerName == carddata.zoneID) {
+                            player.getHandZone().GetComponent<Zone>().DropCardOnClientsOnTop(card);
+                            CommandProcessor.Instance.ExecuteClientCommand(new CommandDropCardTo(Player.LocalPlayer, player.getHandZone().GetComponent<Zone>(), card, card.SiblingIndex));
+
+                        }
+                    }
+                }
+            }
+        
+    }
 
 
 }

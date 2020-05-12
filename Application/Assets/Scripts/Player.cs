@@ -113,6 +113,9 @@ public class Player : NetworkBehaviour {
         Player.Players.Remove(this);
     }
 
+    public GameObject getHandZone() {
+        return handObject;
+    }
 
     void SpawnHandAndTable()
     {
@@ -183,6 +186,9 @@ public class Player : NetworkBehaviour {
             hand.ShowPosition = hand.transform.localPosition;
 
         }
+
+        
+
     }
 
     private void MirrorOtherPlayerTable()
@@ -193,6 +199,8 @@ public class Player : NetworkBehaviour {
             Vector3 newPosition = new Vector3(-t.localPosition.x, -t.localPosition.y, t.localPosition.z);
             t.localPosition = newPosition;
         }
+
+       
     }
 
     public void DealCardToPlayer(CardView card)

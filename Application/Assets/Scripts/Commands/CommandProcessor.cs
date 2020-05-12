@@ -15,6 +15,21 @@ public class CommandProcessor : NetworkBehaviour {
     public Button undoButton;
     public Button redoButton;
 
+    public Stack<CommandStackEntry> getUndoStack() { return undoStack; }
+
+    public Stack<CommandStackEntry> getStackToSave() {
+        while (undoStack.Count != 0)
+        {
+            UndoLastServerCommand();
+        }
+        RpcSetRedoButtonInteractable(true);
+        return redoStack;
+    }
+
+    public void setRedoStack(Stack<CommandStackEntry> redo) {
+        redoStack = redo;
+    }
+
 
     private void Start()
     {
@@ -26,9 +41,12 @@ public class CommandProcessor : NetworkBehaviour {
     {
         base.OnStartLocalPlayer();
         Instance = this;
-
-        undoButton = GameObject.FindGameObjectWithTag("UndoButton").GetComponent<Button>();
+        
+        undoButton = GameObject.FindGameObjectWithTag("UndoButton1").GetComponent<Button>();
+        
         redoButton = GameObject.FindGameObjectWithTag("RedoButton").GetComponent<Button>();
+  
+        
     }
 
     private void OnDestroy()
@@ -49,10 +67,11 @@ public class CommandProcessor : NetworkBehaviour {
     [Server]
     public void UndoLastServerCommand()
     {
+
         if (undoStack.Count == 0)
             return;
 
-
+        
         CommandStackEntry lastEntry = undoStack.Pop();
         LogManager.Instance.MakeEntryActive(lastEntry.logEntry, false);
         Command lastCommand = lastEntry.command;
@@ -68,6 +87,20 @@ public class CommandProcessor : NetworkBehaviour {
         if (undoStack.Count == 0) RpcSetUndoButtonInteractable(false);
 
         LogManager.Instance.RpcShowLogPopup(entry.Text);
+        
+    }
+
+    [Server]
+    public void ResetServerCommand()
+    {
+
+        if (undoStack.Count == 0)
+            return;
+
+        while (undoStack.Count != 0)
+        {
+            UndoLastServerCommand();
+        }
 
     }
 
@@ -76,10 +109,18 @@ public class CommandProcessor : NetworkBehaviour {
     {
         Instance.UndoLastServerCommand();
     }
+
+
     [Command]
     public void CmdRedoLastServerCommand()
     {
         Instance.RedoLastServerCommand();
+    }
+
+    [Command]
+    public void CmdResetServerCommand()
+    {
+        Instance.ResetServerCommand();
     }
 
     private void RedoLastServerCommand()

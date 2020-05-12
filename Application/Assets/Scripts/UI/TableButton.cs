@@ -22,6 +22,8 @@ public class TableButton : MonoBehaviour {
         Button = GetComponent<Button>(); 
         image = GetComponent<Image>();
         onSpirte = image.sprite;
+
+        
     }
 
     public void Toggle(bool b)
