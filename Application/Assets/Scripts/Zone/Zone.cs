@@ -39,12 +39,10 @@ public abstract class Zone : Entity {
 
     public string cardsSortingLayer;
 
-<<<<<<< HEAD
+
     public string zoneID;
 
-=======
     public int NumberOfCards { get; set; }
->>>>>>> origin/mucsi
 
     public Permission TakeAwayPermission { get; set; }
     public Permission DropOntoPermission { get; set; }
@@ -74,10 +72,9 @@ public abstract class Zone : Entity {
     protected override void Start()
     {
         base.Start();
-<<<<<<< HEAD
+
         zoneID = transform.position.x.ToString() + transform.position.y.ToString() + transform.position.z.ToString(); 
-=======
->>>>>>> origin/mucsi
+
         /*takeAwayPermission = new Permission(Permission.AllowType.WARNING, Permission.AccessType.OWNERONLY);
         dropOntoPermission = new Permission(Permission.AllowType.WARNING, Permission.AccessType.OWNERONLY);*/
         TakeAwayPermission = new Permission(ownerTakeAwayPermissionType, othersTakeAwayPermissionType);

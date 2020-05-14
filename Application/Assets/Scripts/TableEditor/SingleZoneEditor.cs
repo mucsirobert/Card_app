@@ -6,15 +6,13 @@ public class SingleZoneEditor : EditorEntity
 {
     private static int zoneNumber = 0;
     public bool CanOnlyHoldOneCard { get; set; }
-<<<<<<< HEAD
+
     public List<SingleZoneEditor> clonedZones = new List<SingleZoneEditor>();
-   
-=======
+
 
 
     public int numberOfCards { get; set; }
     public bool Collapse { get; set; }
->>>>>>> origin/mucsi
     public Permission.PermissionType OwnerViewPermissionType { get; set; }
     public Permission.PermissionType OthersViewPermissionType { get; set; }
 
@@ -39,11 +37,10 @@ public class SingleZoneEditor : EditorEntity
 
     public override void Save(TableData tableData)
     {
-<<<<<<< HEAD
-        tableData.Add(new SingleZoneData(this.transform.position, Name, Color, OwnerTakeAwayPermissionType, OwnerDropOntoPermissionType, OwnerViewPermissionType, OthersTakeAwayPermissionType, OthersDropOntoPermissionType, OthersViewPermissionType, FlipCardsWhenDropped, CanOnlyHoldOneCard));
+        tableData.Add(new SingleZoneData(this.transform.position, Name, Color, OwnerTakeAwayPermissionType, OwnerDropOntoPermissionType, OwnerViewPermissionType, OthersTakeAwayPermissionType, OthersDropOntoPermissionType, OthersViewPermissionType, FlipCardsWhenDropped, CanOnlyHoldOneCard, numberOfCards, Collapse));
         foreach (SingleZoneEditor item in clonedZones)
         {
-            tableData.Add(new SingleZoneData(item.transform.position, Name, Color, OwnerTakeAwayPermissionType, OwnerDropOntoPermissionType, OwnerViewPermissionType, OthersTakeAwayPermissionType, OthersDropOntoPermissionType, OthersViewPermissionType, FlipCardsWhenDropped, CanOnlyHoldOneCard));
+            tableData.Add(new SingleZoneData(item.transform.position, Name, Color, OwnerTakeAwayPermissionType, OwnerDropOntoPermissionType, OwnerViewPermissionType, OthersTakeAwayPermissionType, OthersDropOntoPermissionType, OthersViewPermissionType, FlipCardsWhenDropped, CanOnlyHoldOneCard, numberOfCards, Collapse));
 
         }
     }
@@ -58,9 +55,10 @@ public class SingleZoneEditor : EditorEntity
         singlezone.OwnerDropOntoPermissionType = this.OwnerDropOntoPermissionType;
         singlezone.OthersDropOntoPermissionType = this.OthersDropOntoPermissionType;
         singlezone.CanOnlyHoldOneCard = this.CanOnlyHoldOneCard;
-=======
-        tableData.Add(new SingleZoneData(this.transform.position, Name, Color, OwnerTakeAwayPermissionType, OwnerDropOntoPermissionType, OwnerViewPermissionType, OthersTakeAwayPermissionType, OthersDropOntoPermissionType, OthersViewPermissionType, FlipCardsWhenDropped, CanOnlyHoldOneCard, numberOfCards, Collapse));
->>>>>>> origin/mucsi
+        singlezone.numberOfCards = this.numberOfCards;
+        singlezone.Collapse = this.Collapse;
+       // tableData.Add(new SingleZoneData(this.transform.position, Name, Color, OwnerTakeAwayPermissionType, OwnerDropOntoPermissionType, OwnerViewPermissionType, OthersTakeAwayPermissionType, OthersDropOntoPermissionType, OthersViewPermissionType, FlipCardsWhenDropped, CanOnlyHoldOneCard, numberOfCards, Collapse));
+
     }
 
     public override void OnMenuItemClicked(ContextMenuItem menuItem)

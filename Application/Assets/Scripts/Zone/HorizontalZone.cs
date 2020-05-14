@@ -290,15 +290,10 @@ public class HorizontalZone : Zone
     public override void OnCardRemoved(CardView card)
     {
         base.OnCardRemoved(card);
-<<<<<<< HEAD
-        UpdateCardPositions(false, cardsInsideMoveSpeed);
-        
-=======
 
         if (collapse)
             UpdateCardPositions(false, cardsInsideMoveSpeed);
 
->>>>>>> origin/mucsi
         scrollableComponent.OnChildRemoved(card.SpriteRenderer);
     }
 
