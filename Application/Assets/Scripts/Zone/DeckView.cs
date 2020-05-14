@@ -65,7 +65,7 @@ public class DeckView : Zone
     protected override void Start()
     {
         base.Start();
-
+        Debug.Log(CardNums.Count);
         /*if (isServer)
         {
             InitDeck();

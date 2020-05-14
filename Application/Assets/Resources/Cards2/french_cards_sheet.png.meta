@@ -1,0 +1,1411 @@
+fileFormatVersion: 2
+guid: ed0f92b17bf65164d8f10094577a2c0e
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 21300000
+    second: french_cards_sheet_0
+  - first:
+      213: 21300002
+    second: french_cards_sheet_1
+  - first:
+      213: 21300004
+    second: french_cards_sheet_2
+  - first:
+      213: 21300006
+    second: french_cards_sheet_3
+  - first:
+      213: 21300008
+    second: french_cards_sheet_4
+  - first:
+      213: 21300010
+    second: french_cards_sheet_5
+  - first:
+      213: 21300012
+    second: french_cards_sheet_6
+  - first:
+      213: 21300014
+    second: french_cards_sheet_7
+  - first:
+      213: 21300016
+    second: french_cards_sheet_8
+  - first:
+      213: 21300018
+    second: french_cards_sheet_9
+  - first:
+      213: 21300020
+    second: french_cards_sheet_10
+  - first:
+      213: 21300022
+    second: french_cards_sheet_11
+  - first:
+      213: 21300024
+    second: french_cards_sheet_12
+  - first:
+      213: 21300026
+    second: french_cards_sheet_13
+  - first:
+      213: 21300028
+    second: french_cards_sheet_14
+  - first:
+      213: 21300030
+    second: french_cards_sheet_15
+  - first:
+      213: 21300032
+    second: french_cards_sheet_16
+  - first:
+      213: 21300034
+    second: french_cards_sheet_17
+  - first:
+      213: 21300036
+    second: french_cards_sheet_18
+  - first:
+      213: 21300038
+    second: french_cards_sheet_19
+  - first:
+      213: 21300040
+    second: french_cards_sheet_20
+  - first:
+      213: 21300042
+    second: french_cards_sheet_21
+  - first:
+      213: 21300044
+    second: french_cards_sheet_22
+  - first:
+      213: 21300046
+    second: french_cards_sheet_23
+  - first:
+      213: 21300048
+    second: french_cards_sheet_24
+  - first:
+      213: 21300050
+    second: french_cards_sheet_25
+  - first:
+      213: 21300052
+    second: french_cards_sheet_26
+  - first:
+      213: 21300054
+    second: french_cards_sheet_27
+  - first:
+      213: 21300056
+    second: french_cards_sheet_28
+  - first:
+      213: 21300058
+    second: french_cards_sheet_29
+  - first:
+      213: 21300060
+    second: french_cards_sheet_30
+  - first:
+      213: 21300062
+    second: french_cards_sheet_31
+  - first:
+      213: 21300064
+    second: french_cards_sheet_32
+  - first:
+      213: 21300066
+    second: french_cards_sheet_33
+  - first:
+      213: 21300068
+    second: french_cards_sheet_34
+  - first:
+      213: 21300070
+    second: french_cards_sheet_35
+  - first:
+      213: 21300072
+    second: french_cards_sheet_36
+  - first:
+      213: 21300074
+    second: french_cards_sheet_37
+  - first:
+      213: 21300076
+    second: french_cards_sheet_38
+  - first:
+      213: 21300078
+    second: french_cards_sheet_39
+  - first:
+      213: 21300080
+    second: french_cards_sheet_40
+  - first:
+      213: 21300082
+    second: french_cards_sheet_41
+  - first:
+      213: 21300084
+    second: french_cards_sheet_42
+  - first:
+      213: 21300086
+    second: french_cards_sheet_43
+  - first:
+      213: 21300088
+    second: french_cards_sheet_44
+  - first:
+      213: 21300090
+    second: french_cards_sheet_45
+  - first:
+      213: 21300092
+    second: french_cards_sheet_46
+  - first:
+      213: 21300094
+    second: french_cards_sheet_47
+  - first:
+      213: 21300096
+    second: french_cards_sheet_48
+  - first:
+      213: 21300098
+    second: french_cards_sheet_49
+  - first:
+      213: 21300100
+    second: french_cards_sheet_50
+  - first:
+      213: 21300102
+    second: french_cards_sheet_51
+  - first:
+      213: 21300104
+    second: french_cards_sheet_52
+  - first:
+      213: 21300106
+    second: french_cards_sheet_53
+  externalObjects: {}
+  serializedVersion: 10
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 300
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 1
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 1
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 1
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: french_cards_sheet_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3800
+        width: 484
+        height: 760
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b0ac9242b3b85db4a9d303c1f5a3c86f
+      internalID: 21300000
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: french_cards_sheet_1
+      rect:
+        serializedVersion: 2
+        x: 484
+        y: 3800
+        width: 484
+        height: 760
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0b5b16b569a54b049bb473258a45a1b8
+      internalID: 21300002
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: french_cards_sheet_2
+      rect:
+        serializedVersion: 2
+        x: 968
+        y: 3800
+        width: 484
+        height: 760
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0facf69b444a5a54b974492a4c71e5c8
+      internalID: 21300004
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: french_cards_sheet_3
+      rect:
+        serializedVersion: 2
+        x: 1452
+        y: 3800
+        width: 484
+        height: 760
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 38c1c4a780fe7414da250d27d1b4f562
+      internalID: 21300006
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: french_cards_sheet_4
+      rect:
+        serializedVersion: 2
+        x: 1936
+        y: 3800
+        width: 484
+        height: 760
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f21e51343b1f1144b9c7a075ba900084
+      internalID: 21300008
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: french_cards_sheet_5
+      rect:
+        serializedVersion: 2
+        x: 2420
+        y: 3800
+        width: 484
+        height: 760
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a1a74f6106275504282c7a51c5f423bc
+      internalID: 21300010
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: french_cards_sheet_6
+      rect:
+        serializedVersion: 2
+        x: 2904
+        y: 3800
+        width: 484
+        height: 760
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3ad470b375c32c74cb7c707ffc9841b4
+      internalID: 21300012
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: french_cards_sheet_7
+      rect:
+        serializedVersion: 2
+        x: 3388
+        y: 3800
+        width: 484
+        height: 760
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 22aa80377650c144c8e2850dae0a66fb
+      internalID: 21300014
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: french_cards_sheet_8
+      rect:
+        serializedVersion: 2
+        x: 3872
+        y: 3800
+        width: 484
+        height: 760
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f928c588a432a3542b04593eeecf14fa
+      internalID: 21300016
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: french_cards_sheet_9
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3040
+        width: 484
+        height: 760
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4860bd78cd592ac4e99ba227234164eb
+      internalID: 21300018
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: french_cards_sheet_10
+      rect:
+        serializedVersion: 2
+        x: 484
+        y: 3040
+        width: 484
+        height: 760
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e4597f89536569a419731961a9f7eec7
+      internalID: 21300020
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: french_cards_sheet_11
+      rect:
+        serializedVersion: 2
+        x: 968
+        y: 3040
+        width: 484
+        height: 760
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e0720e2d4bc94f441af47548fd6e7525
+      internalID: 21300022
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: french_cards_sheet_12
+      rect:
+        serializedVersion: 2
+        x: 1452
+        y: 3040
+        width: 484
+        height: 760
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d88eeece233143342909fa48c396aabd
+      internalID: 21300024
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: french_cards_sheet_13
+      rect:
+        serializedVersion: 2
+        x: 1936
+        y: 3040
+        width: 484
+        height: 760
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3fe6c676c89ec72479cccbcd7db479f2
+      internalID: 21300026
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: french_cards_sheet_14
+      rect:
+        serializedVersion: 2
+        x: 2420
+        y: 3040
+        width: 484
+        height: 760
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8908cbc0349790b4c94c6416fd6d5515
+      internalID: 21300028
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: french_cards_sheet_15
+      rect:
+        serializedVersion: 2
+        x: 2904
+        y: 3040
+        width: 484
+        height: 760
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fa960f3e9995b7d4ba4029b0418b9319
+      internalID: 21300030
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: french_cards_sheet_16
+      rect:
+        serializedVersion: 2
+        x: 3388
+        y: 3040
+        width: 484
+        height: 760
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f84725e43bd13a343af5433d96d66364
+      internalID: 21300032
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: french_cards_sheet_17
+      rect:
+        serializedVersion: 2
+        x: 3872
+        y: 3040
+        width: 484
+        height: 760
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 12eaa42f16491ce41b71a726121eaab6
+      internalID: 21300034
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: french_cards_sheet_18
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2280
+        width: 484
+        height: 760
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5c6f5008435aad24592b423a56840b13
+      internalID: 21300036
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: french_cards_sheet_19
+      rect:
+        serializedVersion: 2
+        x: 484
+        y: 2280
+        width: 484
+        height: 760
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 54fb0112813c66e4a8eed248bfd8716b
+      internalID: 21300038
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: french_cards_sheet_20
+      rect:
+        serializedVersion: 2
+        x: 968
+        y: 2280
+        width: 484
+        height: 760
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1fc5653bb78433e42b6c4f9e3e4f3d90
+      internalID: 21300040
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: french_cards_sheet_21
+      rect:
+        serializedVersion: 2
+        x: 1452
+        y: 2280
+        width: 484
+        height: 760
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ef7bfadfe3627484698fccf7b4954a72
+      internalID: 21300042
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: french_cards_sheet_22
+      rect:
+        serializedVersion: 2
+        x: 1936
+        y: 2280
+        width: 484
+        height: 760
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8e6b6ab78b8d51c44b192c11ba83af3c
+      internalID: 21300044
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: french_cards_sheet_23
+      rect:
+        serializedVersion: 2
+        x: 2420
+        y: 2280
+        width: 484
+        height: 760
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6d7bac2a5ac376b42ad826be124119ef
+      internalID: 21300046
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: french_cards_sheet_24
+      rect:
+        serializedVersion: 2
+        x: 2904
+        y: 2280
+        width: 484
+        height: 760
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0600d6cf99b943841b4a4ce9095d181a
+      internalID: 21300048
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: french_cards_sheet_25
+      rect:
+        serializedVersion: 2
+        x: 3388
+        y: 2280
+        width: 484
+        height: 760
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e29f579b6e62585409b0121f19786951
+      internalID: 21300050
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: french_cards_sheet_26
+      rect:
+        serializedVersion: 2
+        x: 3872
+        y: 2280
+        width: 484
+        height: 760
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: da0daee760015f74ab5cf5ee9614e38f
+      internalID: 21300052
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: french_cards_sheet_27
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1520
+        width: 484
+        height: 760
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b1bcda59e54f78c4798d479778f02a66
+      internalID: 21300054
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: french_cards_sheet_28
+      rect:
+        serializedVersion: 2
+        x: 484
+        y: 1520
+        width: 484
+        height: 760
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8abf23a1068afff45b2c5e8033b75388
+      internalID: 21300056
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: french_cards_sheet_29
+      rect:
+        serializedVersion: 2
+        x: 968
+        y: 1520
+        width: 484
+        height: 760
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7115b0c2fccdf0440a64ddcdcc789ef2
+      internalID: 21300058
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: french_cards_sheet_30
+      rect:
+        serializedVersion: 2
+        x: 1452
+        y: 1520
+        width: 484
+        height: 760
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0aa302d1113e1b34798063c4f76a7f2d
+      internalID: 21300060
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: french_cards_sheet_31
+      rect:
+        serializedVersion: 2
+        x: 1936
+        y: 1520
+        width: 484
+        height: 760
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7e4a9c7ab6e5c3540893826d8f05111d
+      internalID: 21300062
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: french_cards_sheet_32
+      rect:
+        serializedVersion: 2
+        x: 2420
+        y: 1520
+        width: 484
+        height: 760
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6ed92d87f99043f408ccac8e23b5fa8e
+      internalID: 21300064
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: french_cards_sheet_33
+      rect:
+        serializedVersion: 2
+        x: 2904
+        y: 1520
+        width: 484
+        height: 760
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a06e0f48b0fdfda4ab4a3b496e52db17
+      internalID: 21300066
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: french_cards_sheet_34
+      rect:
+        serializedVersion: 2
+        x: 3388
+        y: 1520
+        width: 484
+        height: 760
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 84b2b3cce629cf342bfa802378f79488
+      internalID: 21300068
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: french_cards_sheet_35
+      rect:
+        serializedVersion: 2
+        x: 3872
+        y: 1520
+        width: 484
+        height: 760
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1eff9de720936984bba26ec21d26dadf
+      internalID: 21300070
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: french_cards_sheet_36
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 760
+        width: 484
+        height: 760
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 49b395a8ec123094ea891874a61d7e8b
+      internalID: 21300072
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: french_cards_sheet_37
+      rect:
+        serializedVersion: 2
+        x: 484
+        y: 760
+        width: 484
+        height: 760
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a464ac1e8975fac42ad9934e501e6fdc
+      internalID: 21300074
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: french_cards_sheet_38
+      rect:
+        serializedVersion: 2
+        x: 968
+        y: 760
+        width: 484
+        height: 760
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7b2aa9ff47d7283468023c3c88ed1f21
+      internalID: 21300076
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: french_cards_sheet_39
+      rect:
+        serializedVersion: 2
+        x: 1452
+        y: 760
+        width: 484
+        height: 760
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c96b1ccafe40de246b98903a21c5d283
+      internalID: 21300078
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: french_cards_sheet_40
+      rect:
+        serializedVersion: 2
+        x: 1936
+        y: 760
+        width: 484
+        height: 760
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cc543bf26f95de2418058fd0bd308bb3
+      internalID: 21300080
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: french_cards_sheet_41
+      rect:
+        serializedVersion: 2
+        x: 2420
+        y: 760
+        width: 484
+        height: 760
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 60a3e387120c01249b207f87b5105e11
+      internalID: 21300082
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: french_cards_sheet_42
+      rect:
+        serializedVersion: 2
+        x: 2904
+        y: 760
+        width: 484
+        height: 760
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d7ab7f0d0d62f314ba38600bcc6af693
+      internalID: 21300084
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: french_cards_sheet_43
+      rect:
+        serializedVersion: 2
+        x: 3388
+        y: 760
+        width: 484
+        height: 760
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 722752e4410103f48a8fe69ffe0aa7ed
+      internalID: 21300086
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: french_cards_sheet_44
+      rect:
+        serializedVersion: 2
+        x: 3872
+        y: 760
+        width: 484
+        height: 760
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1cf76e17c55e7fb46ad0303391c36668
+      internalID: 21300088
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: french_cards_sheet_45
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 484
+        height: 760
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8c684f2c033e5df43826a47eaa482a06
+      internalID: 21300090
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: french_cards_sheet_46
+      rect:
+        serializedVersion: 2
+        x: 484
+        y: 0
+        width: 484
+        height: 760
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b2ddfe526e8d4d64497944f9bd3e82f5
+      internalID: 21300092
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: french_cards_sheet_47
+      rect:
+        serializedVersion: 2
+        x: 968
+        y: 0
+        width: 484
+        height: 760
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 686ffbc6577a4774a92c312fe5baba78
+      internalID: 21300094
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: french_cards_sheet_48
+      rect:
+        serializedVersion: 2
+        x: 1452
+        y: 0
+        width: 484
+        height: 760
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3c036b4ed51a665489954dcd7c0a28b6
+      internalID: 21300096
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: french_cards_sheet_49
+      rect:
+        serializedVersion: 2
+        x: 1936
+        y: 0
+        width: 484
+        height: 760
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3513e9b620f03cb44a04def4e0f37bae
+      internalID: 21300098
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: french_cards_sheet_50
+      rect:
+        serializedVersion: 2
+        x: 2420
+        y: 0
+        width: 484
+        height: 760
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d9c85cc0cd28a0044bf4d3eb79fc13cc
+      internalID: 21300100
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: french_cards_sheet_51
+      rect:
+        serializedVersion: 2
+        x: 2904
+        y: 0
+        width: 484
+        height: 760
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a438f89a134b3e54fa8ae6360aba29e9
+      internalID: 21300102
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: french_cards_sheet_52
+      rect:
+        serializedVersion: 2
+        x: 3388
+        y: 0
+        width: 484
+        height: 760
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d7fec3a8edb62114aba00070c1424e28
+      internalID: 21300104
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: french_cards_sheet_53
+      rect:
+        serializedVersion: 2
+        x: 3872
+        y: 0
+        width: 484
+        height: 760
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a5492fd2d9bc1cb4a99072f5d0199a79
+      internalID: 21300106
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 36dee345c34661f4e8bfb205cd3ebfb6
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
