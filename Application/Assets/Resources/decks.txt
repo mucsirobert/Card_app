@@ -1,1 +1,0 @@
-{"decks":[{"deckName":"Francia","fileName":"francia.json"},{"deckName":"Uno","fileName":"unoDeck.json"}]}
