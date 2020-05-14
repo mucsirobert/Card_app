@@ -134,7 +134,7 @@ public abstract class Zone : Entity {
 
             prevZone.OnCardRemoved(card);
         }
-        UnityEngine.Debug.Log(gameObject.name);
+     
     }
 
     public void DropCardOnClientsOnTop(CardView card)
@@ -172,7 +172,7 @@ public abstract class Zone : Entity {
         canTakeAwayCards = false;
         UpdateCardsExSiblingIndex();
         cardList.Remove(card);
-        UnityEngine.Debug.Log("elveve");
+
     }
 
     public virtual void tempMethod(CardView card)

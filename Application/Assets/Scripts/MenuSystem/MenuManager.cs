@@ -28,6 +28,8 @@ public class MenuManager : MonoBehaviour
 
     private FileInfo[] listOfGames;// ezek kellenek 
     private MainMenuManager.SerializableObjects objectsForLoadGame;// a visszatolteshez
+    private List<string> mainMenuPlayerNameList;
+    private int currentPlayerIndex;
 
     private Stack<Dialog> dialogStack = new Stack<Dialog>();
 
@@ -64,70 +66,100 @@ public class MenuManager : MonoBehaviour
     }
 
     public void loadGame() {
-        DirectoryInfo d = new DirectoryInfo(Path.Combine(Application.dataPath, "Games"));
+        DirectoryInfo d = new DirectoryInfo(Path.Combine(Application.persistentDataPath, "Games"));
         //FileInfo[] Files = d.GetFiles("*.txt"); //Getting Text files
-        listOfGames = d.GetFiles("*.txt");
-        List<string> fileNames = new List<string>();
-        foreach (FileInfo file in listOfGames)
+        if (d.Exists)
         {
-            fileNames.Add(file.Name);
+            listOfGames = d.GetFiles("*.txt");
+            List<string> fileNames = new List<string>();
+            foreach (FileInfo file in listOfGames)
+            {
+                fileNames.Add(file.Name);
+            }
+
+            if (fileNames.Count == 0) fileNames.Add("0 game saved");
+
+            DropdownDialog.Show(fileNames, "Load game", loadGameFromJson);
+        }
+        else {
+            List<string> fileNames = new List<string>();
+            fileNames.Add("0 game saved");
+
+            DropdownDialog.Show(fileNames, "Load game", null);
         }
 
-        DropdownDialog.Show(fileNames, "Load game", loadGameFromJson);
+        
     }
 
     public void loadGameFromJson(int index) {
         
-        string dataAsJson = File.ReadAllText(Path.Combine(Application.dataPath, Path.Combine("Games", listOfGames[index].Name)));
-      /*  JsonSerializerSettings settings = new JsonSerializerSettings { TypeNameHandling = TypeNameHandling.All };
-        Stack<CommandStackEntry> stack;
-        stack = JsonConvert.DeserializeObject<Stack<CommandStackEntry>>(dataAsJson, settings);
-
-       // objectsForLoadGame = JsonConvert.DeserializeObject<MainMenuManager.SerializableObjects>(dataAsJson, settings);
-        List<string> templist = new List<string>();
-        Debug.Log(objectsForLoadGame);
-
-        /* foreach (MainMenuPlayer p in objectsForLoadGame.playerList) {
-             templist.Add(p.playerName); 
-         }
-         DropdownDialog.Show(templist, "Players", null);
-
-         
-        CommandProcessor.Instance.setRedoStack(stack);
-        Debug.Log("delegétmukodik");
-        */
+        string dataAsJson = File.ReadAllText(Path.Combine(Application.persistentDataPath, Path.Combine("Games", listOfGames[index].Name)));
+      
 
         GameSaveDataHolder gsdh = GameObject.FindGameObjectWithTag("GameSaveDataHolder").GetComponent<GameSaveDataHolder>();
         gsdh.LoadFromJSON(dataAsJson);
+
+        mainMenuPlayerNameList = new List<string>();
+
+        foreach (MainMenuPlayer player in LobbyPlayerList.Instance.getPlayers())
+        {
+            mainMenuPlayerNameList.Add(player.playerName);
+          
+        }
+
+        currentPlayerIndex = LobbyPlayerList.Instance.getPlayers().Count-1;
+
+        foreach (MainMenuPlayer player in LobbyPlayerList.Instance.getPlayers())
+        {
+
+            DropdownDialog.Show(gsdh.data.playersNameList, player.playerName, setNameForPlayer);
+               //currentPlayerIndex++;
+        }
+
+
     }
 
-    //public void OpenMenu(Dialog instance)
-    //{
-    //    // De-activate top menu
-    //    if (dialogStack.Count > 0)
-    //    {
-    //        if (instance.DisableMenusUnderneath)
-    //        {
-    //            foreach (var menu in dialogStack)
-    //            {
-    //                menu.gameObject.SetActive(false);
+    public void setNameForPlayer(int index)
+    {
 
-    //                if (menu.DisableMenusUnderneath)
-    //                    break;
-    //            }
-    //        }
-
-    //        /*var topCanvas = instance.GetComponent<Canvas>();
-    //        var previousCanvas = menuStack.Peek().GetComponent<Canvas>();
-    //        topCanvas.sortingOrder = previousCanvas.sortingOrder + 1;*/
-    //    }
-
-    //    dialogStack.Push(instance);
-    //    backPanel.SetActive(true);
-    //}
+        GameSaveDataHolder gsdh = GameObject.FindGameObjectWithTag("GameSaveDataHolder").GetComponent<GameSaveDataHolder>();
+        List<MainMenuPlayer> listOfPlayers = LobbyPlayerList.Instance.getPlayers();
 
 
-    public void CloseDialog(Dialog dialog)
+        
+        listOfPlayers[currentPlayerIndex].whereToLoad = gsdh.data.playersNameList[index];
+        currentPlayerIndex--;
+   
+       
+    }
+
+        //public void OpenMenu(Dialog instance)
+        //{
+        //    // De-activate top menu
+        //    if (dialogStack.Count > 0)
+        //    {
+        //        if (instance.DisableMenusUnderneath)
+        //        {
+        //            foreach (var menu in dialogStack)
+        //            {
+        //                menu.gameObject.SetActive(false);
+
+        //                if (menu.DisableMenusUnderneath)
+        //                    break;
+        //            }
+        //        }
+
+        //        /*var topCanvas = instance.GetComponent<Canvas>();
+        //        var previousCanvas = menuStack.Peek().GetComponent<Canvas>();
+        //        topCanvas.sortingOrder = previousCanvas.sortingOrder + 1;*/
+        //    }
+
+        //    dialogStack.Push(instance);
+        //    backPanel.SetActive(true);
+        //}
+
+
+        public void CloseDialog(Dialog dialog)
     {
 
         if (dialogStack.Count == 0)
@@ -138,8 +170,9 @@ public class MenuManager : MonoBehaviour
 
         if (dialogStack.Peek() != dialog)
         {
-            Debug.LogErrorFormat(dialog, "{0} cannot be closed because it is not on top of stack", dialog.GetType());
-            return;
+            
+          //  Debug.LogErrorFormat(dialog, "{0} cannot be closed because it is not on top of stack", dialog.GetType());
+          // return;
         }
 
         //CloseTopMenu();

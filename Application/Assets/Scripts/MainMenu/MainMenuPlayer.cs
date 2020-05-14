@@ -47,6 +47,9 @@ public class MainMenuPlayer : NetworkLobbyPlayer
     private bool isPlayerReady;
 
     public NetworkConnectionUnityEvent OnRemoveButtonPressed { get; set; }
+    
+    //String used for loading back data from JSON to the right player
+    public string whereToLoad;
 
     private void Awake()
     {

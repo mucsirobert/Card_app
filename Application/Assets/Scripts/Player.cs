@@ -12,6 +12,9 @@ public class Player : NetworkBehaviour {
     public Button playerNameButtonPrefab;
     public Table tablePrefab;
 
+    //String used for loading back data from JSON to the right player
+    public string whereToLoad;
+
     [SyncVar]
     private GameObject handObject;
 

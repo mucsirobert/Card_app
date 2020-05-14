@@ -12,5 +12,6 @@ public class MainMenuPlayerLobbyHook : LobbyHook {
 
         gamePlayer.GetComponent<Player>().playerName = lobbyPlayer.GetComponent<MainMenuPlayer>().playerName;
         gamePlayer.GetComponent<Player>().playerColor = lobbyPlayer.GetComponent<MainMenuPlayer>().playerColor;
+        gamePlayer.GetComponent<Player>().whereToLoad = lobbyPlayer.GetComponent<MainMenuPlayer>().whereToLoad;
     }
 }

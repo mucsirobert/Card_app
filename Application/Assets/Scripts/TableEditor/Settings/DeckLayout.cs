@@ -30,21 +30,5 @@ public class DeckLayout
         return ret;
     }
 
-    /*public void SaveToJson(string fileName)
-    {
-        DirectoryInfo di = new DirectoryInfo(Path.Combine(Application.persistentDataPath, "Decks"));
-        if (!di.Exists)
-            di.Create();
-
-        Debug.Log(Path.Combine(Application.persistentDataPath, Path.Combine("Decks", fileName)));
-        var sr = File.CreateText(Path.Combine(Application.persistentDataPath, Path.Combine("Decks", fileName)));
-        sr.WriteLine(JsonUtility.ToJson(this));
-
-        sr.Close();
-    }
-
-    public void LoadFromJson(TextAsset file)
-    {
-        cards = JsonUtility.FromJson<List<int>>(file.text);
-    }*/
+  
 }

@@ -43,16 +43,11 @@ public class LobbyPanel : MonoBehaviour {
         });
     }
 
-  //  private FileInfo[] listOfGames;// ezek kellenek 
- //   private MainMenuManager.SerializableObjects objectsForLoadGame;// a visszatolteshez
+
 
     public void OnLoadGameButtonPressed()
     {
-      //  Hide();
-      /*  editModeManager.ShowLoadGameMode(() =>
-        {
-            Show(onBackPressed);
-        });*/
+
         
 
 

@@ -122,32 +122,8 @@ public class MainMenuManager : MonoBehaviour, INetworkEventReceiver {
 
     public class SerializableObjects {
 
-        //public List<MainMenuPlayer> playerList = LobbyPlayerList.Instance.getMainMenuPlayerList();
-
-
-
-        //  public static TableEditorDataHolder tedh ;
         public Stack<CommandStackEntry> redoStack = CommandProcessor.Instance.getStackToSave();
-       /*
-        public void loadForSave() {
-            foreach (Player p in Player.Players)
-            {
-                Debug.Log(p.playerName);
-                playerList.Add(p);
-            }
-
-          //  tedh = TableEditorDataHolder.Instance;
-         //   undoStack = CommandProcessor.Instance.getUndoStack();
-        }
-
-        public List<Player> getPlayerList() {
-           /* List<Player> getter = new List<Player>();
-            foreach (Player p in playerList)
-            {
-                getter.Add(p);
-            }
-            return playerList;
-        }*/
+       
     }
 
     public void OnIngameExitPressed()
@@ -156,32 +132,10 @@ public class MainMenuManager : MonoBehaviour, INetworkEventReceiver {
         {
             QuestionPanel.Show("Are you sure you want to exit to the lobby?", () => {
                 QuestionPanel.Show("Do you want to save the game?", () => { // ez a QuestionPanel YesAction-je
-                    /*
-                    string fileName = DateTime.Now.ToString("yyyy-MM-dd--HH-mm-ss")+".txt";
-                    string path = Application.dataPath;
                     
-                    Debug.Log(path);
-
-                    DirectoryInfo di = new DirectoryInfo(Path.Combine(path, "Games"));
-                    if (!di.Exists)
-                        di.Create();
-
-                    
-                    Debug.Log(Path.Combine(di.FullName, fileName));
-                    Debug.Log("Mentve");
-                    var sr = File.CreateText(Path.Combine(di.FullName, fileName));
-                    //sr.WriteLine(JsonUtility.ToJson(tables));
-                    JsonSerializerSettings settings = new JsonSerializerSettings { TypeNameHandling = TypeNameHandling.All };
-                    // SerializableObjects so = new SerializableObjects();
-                    //so.loadForSave();
-                    // sr.WriteLine(JsonConvert.SerializeObject(CommandProcessor.Instance.getStackToSave(), settings));
-                   
-                    sr.WriteLine(JsonConvert.SerializeObject(gsdh, settings));
-                    sr.Close();
-                    */
-
                     GameSaveDataHolder gsdh = GameObject.FindGameObjectWithTag("GameSaveDataHolder").GetComponent<GameSaveDataHolder>();
                     gsdh.SaveToJSON();
+                    gsdh.data = new GameSaveDataHolder.DataSave();
 
                     lobbyNetworkManager.ChangeToLobbyScene();
                     HideMainMenu();
@@ -201,7 +155,8 @@ public class MainMenuManager : MonoBehaviour, INetworkEventReceiver {
                              ShowMainMenu();
                              lobbyNetworkManager.StopHost();
                           });
-
+                    GameSaveDataHolder gsdh = GameObject.FindGameObjectWithTag("GameSaveDataHolder").GetComponent<GameSaveDataHolder>();
+                    gsdh.data = new GameSaveDataHolder.DataSave();
                 });
                 
             }, null);

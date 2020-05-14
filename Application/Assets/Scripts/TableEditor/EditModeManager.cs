@@ -19,8 +19,6 @@ public class EditModeManager : MonoBehaviour {
     [SerializeField]
     private EditModeStartWindow startWindow;
 
-    //public LoadGameStartWindow loadgameStartWindow;
-
     [SerializeField]
     private Text tableNameText;
 
@@ -52,37 +50,7 @@ public class EditModeManager : MonoBehaviour {
         if (backButtonDelegate != null)
             backButtonDelegate();
     }
-    /*
-    public void ShowLoadGameMode(UnityAction backButtonDelegate) {
-        
-        this.backButtonDelegate = backButtonDelegate;
-        //editModeManagerCanvas.gameObject.SetActive(true);
-        loadgameStartWindow.Show( () =>
-        {
-            TextInputDialog.Show("New layout", (string text) =>
-            {
-                if (!String.IsNullOrEmpty(text))
-                {
-                    string fileName = text + ".json";
-                    currenteditedFileName = fileName;
-                    startWindow.Hide();
-                    tablesHolder.Clear();
-                }
-            });
-        },
-        fileName => {
-            currenteditedFileName = fileName;
-            tablesHolder.LoadFromJson(fileName);
-            startWindow.Hide();
-        },
-        fileName => {
-            tablesHolder.LoadFromJson(fileName);
-            tablesHolder.Apply();
-            OnBackButtonPressed();
-        }
-        );Debug.Log("meg kene jelenni");
-    }
-    */
+   
     public void ShowEditMode(UnityAction backButtonDelegate)
     {
         this.backButtonDelegate = backButtonDelegate;
@@ -176,7 +144,7 @@ public class EditModeManager : MonoBehaviour {
 
     public void OnSaveButtonPressed()
     {
-        if (tablesHolder == null) Debug.Log("fux2");
+        
         tablesHolder.SaveToJson(currenteditedFileName);
         
     }

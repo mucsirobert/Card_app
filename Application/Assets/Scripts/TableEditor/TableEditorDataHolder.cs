@@ -75,7 +75,6 @@ public class TableEditorDataHolder : MonoBehaviour  {
 
         Debug.Log(Path.Combine(Application.persistentDataPath, Path.Combine("Layouts", fileName)));
         var sr = File.CreateText(Path.Combine(Application.persistentDataPath, Path.Combine("Layouts", fileName)));
-        //sr.WriteLine(JsonUtility.ToJson(tables));
         JsonSerializerSettings settings = new JsonSerializerSettings { TypeNameHandling = TypeNameHandling.All };
         sr.WriteLine(JsonConvert.SerializeObject(tables, settings));
 

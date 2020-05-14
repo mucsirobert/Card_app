@@ -37,6 +37,10 @@ public class LobbyPlayerList : MonoBehaviour
             _layout.childAlignment = Time.frameCount % 2 == 0 ? TextAnchor.UpperCenter : TextAnchor.UpperLeft;
     }
 
+    public List<MainMenuPlayer> getPlayers() {
+        return players;
+    }
+
     public void AddPlayer(MainMenuPlayer player)
     {
         if (players.Contains(player))

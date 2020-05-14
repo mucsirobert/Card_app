@@ -49,8 +49,7 @@ public class LogManager : NetworkBehaviour {
     private void Start()
     {
         entries = new List<LogEntry>();
-        //Debug.Log("losdfsdfsdfl");
-        //entryDatas = new SyncListLogEntry();
+       
     }
 
     public override void OnStartClient()

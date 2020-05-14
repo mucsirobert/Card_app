@@ -49,29 +49,11 @@ public class UndoRedoUI : MonoBehaviour
     public void OnResetButtonClicked()
     {
         QuestionPanel.Show("Do you want to save the game?", () => { // ez a QuestionPanel YesAction-je
-            /*
-            string fileName = DateTime.Now.ToString("yyyy-dd-M--HH-mm-ss") + ".txt";
-            string path = Application.dataPath;
-
-            Debug.Log(path);
-
-            DirectoryInfo di = new DirectoryInfo(Path.Combine(path, "Games"));
-            if (!di.Exists)
-                di.Create(); 
-
-
-            Debug.Log(Path.Combine(di.FullName, fileName));
-            Debug.Log("Mentve");
-            var sr = File.CreateText(Path.Combine(di.FullName, fileName));
-            //sr.WriteLine(JsonUtility.ToJson(tables));
-            JsonSerializerSettings settings = new JsonSerializerSettings { TypeNameHandling = TypeNameHandling.All };
-            // sr.WriteLine(JsonConvert.SerializeObject(new MainMenuManager.SerializableObjects(), settings));
-           
-            sr.WriteLine(JsonConvert.SerializeObject(CommandProcessor.Instance.getStackToSave(), settings));
-            sr.Close();*/
+            
 
             GameSaveDataHolder gsdh = GameObject.FindGameObjectWithTag("GameSaveDataHolder").GetComponent<GameSaveDataHolder>();
             gsdh.SaveToJSON();
+          
 
             CommandProcessor.Instance.CmdResetServerCommand();
             LogManager.Instance.RpcShowLogPopup("Game saved");

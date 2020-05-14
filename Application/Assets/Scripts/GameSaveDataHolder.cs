@@ -7,7 +7,6 @@ using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
-//using System.Security.Policy;
 using System.Collections.Specialized;
 
 
@@ -18,9 +17,9 @@ public class GameSaveDataHolder : MonoBehaviour
     public HandZone handzone;
     public Table table;
     [SerializeField]
-    public Player[] players;// = GameObject.FindGameObjectsWithTag("Player").GetComponent<Player>();
+    public Player[] players;
     [SerializeField]
-    public TableEditorDataHolder.Tables tables;// = GameObject.FindGameObjectWithTag("TableEditorDataHolder").GetComponent<TableEditorDataHolder>();
+    public TableEditorDataHolder.Tables tables;
 
     public static GameSaveDataHolder Instance { get; set; }
 
@@ -45,7 +44,7 @@ public class GameSaveDataHolder : MonoBehaviour
         public TableEditorDataHolder.Tables tables;
         public List<CardSaveData> cardDataList;
         public List<String> playersNameList;
-       // public List<CardView> horizontalZoneCardList;
+  
        
         public void loadCards()
         {
@@ -69,10 +68,9 @@ public class GameSaveDataHolder : MonoBehaviour
         {
             foreach (Player player in Player.Players)
             {
-               // if (player.getHandZone().transform.position == card.currentZoneObject.transform.position)
+               
                 if(GameObject.ReferenceEquals(player.getHandZone(), card.currentZoneObject))
                 {
-                    Debug.Log(player.playerName);
                     return player.playerName;
                 }
             }
@@ -80,7 +78,7 @@ public class GameSaveDataHolder : MonoBehaviour
             return null;
         }
 
-        //próba: egy listat csinálni egy card neve-zónájának helye alapján.
+        
 
     }
 
@@ -92,8 +90,7 @@ public class GameSaveDataHolder : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
-           // tabledata = GameObject.FindGameObjectWithTag("TableEditorDataHolder").GetComponent<TableEditorDataHolder>();
-           // players = GameObject.FindGameObjectsWithTag("Player").GetComponent<Player>();
+           
             TableEditorDataHolder tedh = GameObject.FindGameObjectWithTag("TableEditorDataHolder").GetComponent<TableEditorDataHolder>();
             tables = tedh.getTables();
 
@@ -110,9 +107,9 @@ public class GameSaveDataHolder : MonoBehaviour
 
     public void SaveToJSON() {
         string fileName = DateTime.Now.ToString("yyyy-MM-dd--HH-mm-ss") + ".txt";
-        string path = Application.dataPath;
+        string path = Application.persistentDataPath;
 
-        Debug.Log(path);
+   
 
         DirectoryInfo di = new DirectoryInfo(Path.Combine(path, "Games"));
         if (!di.Exists)
@@ -123,32 +120,33 @@ public class GameSaveDataHolder : MonoBehaviour
 
         data.tables = tedh.getTables();
         data.loadCards();
-    
+        data.playersNameList = new List<string>();
+        foreach (MainMenuPlayer player in LobbyPlayerList.Instance.getPlayers())
+        {
+            data.playersNameList.Add(player.playerName);
+        }
+
 
         Debug.Log(Path.Combine(di.FullName, fileName));
         Debug.Log("Mentve");
         var sr = File.CreateText(Path.Combine(di.FullName, fileName));
-        //sr.WriteLine(JsonUtility.ToJson(tables));
+
         JsonSerializerSettings settings = new JsonSerializerSettings { TypeNameHandling = TypeNameHandling.All };
-        // SerializableObjects so = new SerializableObjects();
-        //so.loadForSave();
-        // sr.WriteLine(JsonConvert.SerializeObject(CommandProcessor.Instance.getStackToSave(), settings));
-       // GameSaveDataHolder gsdh = GameObject.FindGameObjectWithTag("GameSaveDataHolder").GetComponent<GameSaveDataHolder>();
+      
         sr.WriteLine(JsonConvert.SerializeObject(data, settings));
+        
         sr.Close();
     }
 
     public void LoadFromJSON(string dataAsJson) {
-        //string dataAsJson = File.ReadAllText(Path.Combine(Application.dataPath, Path.Combine("Games", listOfGames[index].Name)));
+        
         JsonSerializerSettings settings = new JsonSerializerSettings { TypeNameHandling = TypeNameHandling.All };
 
-        //TableEditorDataHolder.Tables tables = JsonConvert.DeserializeObject<TableEditorDataHolder.Tables>(dataAsJson, settings);
-        DataSave dataa = JsonConvert.DeserializeObject<DataSave>(dataAsJson, settings);
-        data = dataa;
+        
+        DataSave dataFromFile = JsonConvert.DeserializeObject<DataSave>(dataAsJson, settings);
+        data = dataFromFile;
         TableEditorDataHolder tableEditorManager = GameObject.FindGameObjectWithTag("TableEditorDataHolder").GetComponent<TableEditorDataHolder>();
-        tableEditorManager.setTables(dataa.tables);
+        tableEditorManager.setTables(dataFromFile.tables);
       
-
-        Debug.Log("delegétmukodik");
     }
 }
